@@ -1,0 +1,52 @@
+* {
+	border: none;
+	border-radius: 0;
+	font-family: 'Cantarell';
+	font-size: 15px;
+	margin: 0 5px;
+	min-height: 0;
+}
+
+#taskbar * {
+	margin: 0 2px;
+	font-weight: bold;
+	color: #e3e1de;
+	box-shadow: none;
+	text-shadow: none;
+}
+
+#taskbar *:hover {
+	background: #292728;
+}
+
+window#waybar {
+	background: #3a3738;
+	color: #e3e1de;
+}
+
+#clock {
+	font-weight: bold;
+}
+
+#battery icon {
+	color: red;
+}
+
+@keyframes blink {
+	to {
+		color: red;
+	}
+}
+
+#battery.warning:not(.charging) {
+	animation-name: blink;
+	animation-duration: 1s;
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
+}
+
+.light {
+	font-weight: bold;
+}
+

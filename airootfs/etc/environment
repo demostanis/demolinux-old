@@ -1,0 +1,4 @@
+export EDITOR=vim
+export PAGER=vimpager
+export QT_QPA_PLATFORM=wayland
+export QT_STYLE_OVERRIDE=kvantum

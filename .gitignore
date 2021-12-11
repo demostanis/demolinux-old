@@ -1,0 +1,5 @@
+out/
+work/
+packages/container
+*.pkg.tar.zst
+logs/

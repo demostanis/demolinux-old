@@ -1,0 +1,48 @@
+--- src/modules/wlr/taskbar.cpp	2021-10-26 11:56:17.765133246 +0200
++++ src/modules/wlr/taskbar.cpp	2021-10-26 11:54:06.185135955 +0200
+@@ -44,6 +44,27 @@
+     return rtrim(ltrim(s));
+ }
+ 
++static std::string del_until_spaces(const std::string& s, int spaces_count)
++{
++	size_t pos = 0;
++	int count = 0;
++	std::string result = s;
++	while(count != spaces_count) {
++		pos = result.find(" ", pos + 1);
++		if(pos == std::string::npos) return result;
++		count++;
++	}
++	result.erase(pos);
++	return result;
++}
++
++static std::string trailing_dots(const std::string& s) {
++	std::string s2 (del_until_spaces(s, 2));
++	if(s != s2) {
++		s2.append("...");
++	}
++	return s2;
++}
+ 
+ /* Icon loading functions */
+ static std::vector<std::string> search_prefix()
+@@ -567,7 +588,7 @@
+     }
+     if (!format_before_.empty()) {
+         auto txt = fmt::format(format_before_,
+-                    fmt::arg("title", title),
++                    fmt::arg("title", trailing_dots(title)),
+                     fmt::arg("app_id", app_id),
+                     fmt::arg("state", state_string()),
+                     fmt::arg("short_state", state_string(true))
+@@ -580,7 +601,7 @@
+     }
+     if (!format_after_.empty()) {
+         auto txt = fmt::format(format_after_,
+-                    fmt::arg("title", title),
++                    fmt::arg("title", trailing_dots(title)),
+                     fmt::arg("app_id", app_id),
+                     fmt::arg("state", state_string()),
+                     fmt::arg("short_state", state_string(true))

@@ -1,0 +1,67 @@
+# Maintainer: Alexis Rouillard <contact@arouillard.fr>
+
+pkgname=waybar
+pkgver=r1727.39f42cd
+pkgrel=1
+pkgdesc='Highly customizable Wayland bar for Sway and Wlroots based compositors (GIT)'
+arch=('x86_64')
+url='https://github.com/Alexays/Waybar/'
+license=('MIT')
+provides=('waybar')
+conflicts=('waybar')
+depends=(
+    'gtkmm3'
+    'libjsoncpp.so'
+    'libinput'
+    'libsigc++'
+    'fmt'
+    'wayland'
+    'chrono-date'
+    'libspdlog.so'
+    'gtk-layer-shell'
+    'libpulse'
+    'libnl'
+    'libappindicator-gtk3'
+    'libdbusmenu-gtk3'
+    'libmpdclient'
+)
+makedepends=(
+    'git'
+    'cmake'
+    'meson'
+    'scdoc' # For generating manpages
+    'wayland-protocols'
+)
+optdepends=(
+    'otf-font-awesome: Icons in the default configuration'
+)
+
+source=(
+	"${pkgname}::git://github.com/Alexays/Waybar"
+	keyboard_state_cpp.patch taskbar_cpp.patch)
+
+sha1sums=('SKIP'
+          '71cbd94be0be96d6fbf8b367a327c07073d1a459'
+          '6b699a055365a9de9456c5e98af700c50e56d2bd')
+
+pkgver() {
+    cd "${srcdir}/${pkgname}"
+    printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+}
+
+prepare() {
+    cd "${srcdir}/${pkgname}"
+    patch --forward --strip=0 --input="${srcdir}/keyboard_state_cpp.patch"
+    patch --forward --strip=0 --input="${srcdir}/taskbar_cpp.patch"
+}
+
+build() {
+    cd "${srcdir}/${pkgname}"
+    rm -rf "${srcdir}/build"
+    meson -Drfkill=enabled --prefix=/usr "${srcdir}/build"
+    ninja -C "${srcdir}/build"
+}
+
+package() {
+    DESTDIR="$pkgdir" ninja -C "${srcdir}/build" install
+}

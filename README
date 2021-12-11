@@ -1,0 +1,21 @@
+demostanis linux
+
+To build packages, build the ISO and test it inside QEMU:
+  # make all
+
+For other make targets, check the Makefile.
+
+Usage notes:
+  When you upgrade the system, you might end up with the
+non-patched version of Waybar, which will make your top bar
+have ugly and useless whitespace if you restart it.
+
+Maintainance notes:
+  Check if Wayfire has been updated to support sending
+to Waybar only the windows in the current workspace.
+
+TODO:
+  Put the source code inside the ISO.
+  Figure out why wlogout sometimes errors out.
+  Simple how to use app.
+

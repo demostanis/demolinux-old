@@ -1,0 +1,39 @@
+--- src/modules/keyboard_state.cpp	2021-10-25 11:39:27.235348080 +0200
++++ src/modules/keyboard_state.cpp	2021-10-25 11:39:08.705348611 +0200
+@@ -130,23 +130,19 @@
+     Gtk::Label& label;
+     const std::string& format;
+     const char* name;
+-  } label_states[] = {
+-    {(bool) numl, numlock_label_, numlock_format_, "Num"},
+-    {(bool) capsl, capslock_label_, capslock_format_, "Caps"},
+-    {(bool) scrolll, scrolllock_label_, scrolllock_format_, "Scroll"},
+-  };
+-  for (auto& label_state : label_states) {
+-    std::string text;
+-    text = fmt::format(label_state.format,
+-                       fmt::arg("icon", label_state.state ? icon_locked_ : icon_unlocked_),
+-                       fmt::arg("name", label_state.name));
+-    label_state.label.set_markup(text);
+-    if (label_state.state) {
+-      label_state.label.get_style_context()->add_class("locked");
+-    } else {
+-      label_state.label.get_style_context()->remove_class("locked");
+-    }
+-  }
++  } label_state =
++    {(bool) capsl, capslock_label_, capslock_format_, "Caps"};
+ 
++  if(label_state.state) {
++    event_box_.show();
++    std::string text;
++    text = fmt::format(label_state.format,
++          	     fmt::arg("icon", icon_locked_),
++          	     fmt::arg("name", label_state.name));
++    label_state.label.set_markup(text);
++    label_state.label.get_style_context()->add_class("locked");
++  } else {
++    event_box_.hide();
++  }
+   AModule::update();
+ }

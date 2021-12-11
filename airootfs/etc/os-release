@@ -1,0 +1,5 @@
+NAME="demolinux"
+PRETTY_NAME="demostanis linux"
+ID=demo
+BUILD_ID=rolling
+ANSI_COLOR="1;38;2;43;19;250"

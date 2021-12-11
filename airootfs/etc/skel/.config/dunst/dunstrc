@@ -1,0 +1,12 @@
+[global]
+font = Cantarell
+markup = yes
+# subject in bold, app name and body
+format = "<b>%s</b> (%a)\n%b"
+# do not show (U) and (A)
+show_indicators = false
+dmenu = themed-bemenu -p Choose:
+frame_width = 0
+corner_radius = 5
+
+# vim:set ft=dosini:

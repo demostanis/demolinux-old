@@ -1,0 +1,13 @@
+# stolen from archiso releng
+[Trigger]
+Operation = Install
+Type = Package
+Target = glibc
+
+[Action]
+Description = Running locale-gen...
+When = PostTransaction
+Depends = glibc
+Depends = sed
+Depends = sh
+Exec = /usr/bin/locale-gen

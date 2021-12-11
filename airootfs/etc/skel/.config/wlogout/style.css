@@ -1,0 +1,50 @@
+* {
+	background-image: none;
+}
+window {
+	background-color: rgba(46, 52, 64, 0.9);
+}
+button {
+	padding-bottom: 20px;
+	font: bold 24px 'Cantarell';
+	background-origin: content-box;
+	background-color: #2e3440;
+	border-style: solid;
+	border-width: 0px;
+	border-radius: 0;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 25%;
+	color: #ffffff;
+}
+
+button:focus, button:active, button:hover {
+	background-color: #4c566a;
+	outline-style: none;
+}
+
+/* Using ~ doesn't work, hence the absolute paths */
+
+#lock {
+    background-image: image(url("/home/demostanis/.config/wlogout/assets/lock.png"));
+}
+
+#logout {
+    background-image: image(url("/home/demostanis/.config/wlogout/assets/logout.png"));
+}
+
+#suspend {
+    background-image: image(url("/home/demostanis/.config/wlogout/assets/suspend.png"));
+}
+
+#hibernate {
+    background-image: image(url("/home/demostanis/.config/wlogout/assets/hibernate.png"));
+}
+
+#shutdown {
+    background-image: image(url("/home/demostanis/.config/wlogout/assets/shutdown.png"));
+}
+
+#reboot {
+    background-image: image(url("/home/demostanis/.config/wlogout/assets/reboot.png"));
+}

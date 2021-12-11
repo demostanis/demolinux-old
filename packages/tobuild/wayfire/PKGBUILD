@@ -1,0 +1,34 @@
+# Maintainer: Solomon Choina <shlomochoina@gmail.com>
+# Co-Maintainer: Frank Tao <frank.tao@uwaterloo.ca>
+pkgname=wayfire
+pkgver=0.7.2
+pkgrel=2
+pkgdesc="3D wayland compositor"
+arch=('x86_64')
+url="https://github.com/ammen99/wayfire"
+license=('MIT')
+depends=('wlroots' 'cairo' 'libjpeg' 'wf-config' 'seatd' 'libinput' 'pango' 'polkit')
+makedepends=('git' 'glm' 'meson' 'ninja' 'wayland-protocols' 'doctest' 'cmake')
+provides=("${pkgname%-git}")
+conflicts=("${pkgname%-git}")
+replaces=()
+options=()
+source=('git+https://github.com/WayfireWM/wayfire#commit=6720f6a6e902d2a100158b31f611cddb1a2568bd')
+sha256sums=('SKIP')
+
+build() {
+	cd "$srcdir/wayfire/"
+  arch-meson \
+    -Duse_system_wlroots=enabled \
+    -Duse_system_wfconfig=enabled \
+    build
+  ninja -C build
+}
+
+package() {
+	cd "$srcdir/wayfire"
+	DESTDIR="$pkgdir/" ninja -C build install
+  install -Dm644 wayfire.desktop "$pkgdir"/usr/share/wayland-sessions/wayfire.desktop 
+  cp wayfire.ini "$pkgdir"/usr/share
+	chmod +s "$pkgdir"/usr/bin/wayfire
+}

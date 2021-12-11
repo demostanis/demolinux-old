@@ -1,0 +1,20 @@
+#!/bin/sh
+# wrapper script which allows Tor Browser
+# to run in Wayland
+TORBROWSER="$HOME/.local/share/torbrowser/tbb/x86_64/tor-browser_en-US/Browser/start-tor-browser"
+FILE=/usr/lib/python3.9/site-packages/torbrowser_launcher/launcher.py
+SUDO=${SUDO:-sudo}
+
+# as of now, stable Tor Browser releases
+# support Wayland. Uncomment the lines below
+# to install a specific version.
+# (was required before)
+#  VERSION=${VERSION:-11.0a9}
+#  $SUDO sed 's/return version/return "'$VERSION'"/' -i $FILE
+o=$(torbrowser-launcher 2>&1)
+echo "$o" | grep Exiting. >/dev/null
+if [ $? -eq 0 ]; then
+	sed '10,16d' -i "$TORBROWSER"
+	"$TORBROWSER"
+fi
+

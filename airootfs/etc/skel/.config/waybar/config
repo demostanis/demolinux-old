@@ -1,0 +1,87 @@
+{
+	"layer": "top",
+	"position": "top",
+	"height": 27,
+	"modules-left": ["custom/theme", "wlr/taskbar"],
+	"modules-center": ["clock"],
+	"modules-right": ["network", "cpu", "memory", "temperature", "battery", "backlight", "pulseaudio", "keyboard-state"],
+	"keyboard-state": {
+		"capslock": true,
+		"format": "{icon}",
+		"format-icons": {
+			"locked": "",
+			"unlocked": ""
+		}
+	},
+	"clock": {
+		"tooltip-format": "<big>{:%B %Y}</big>\n<tt><small>{calendar}</small></tt>",
+		"format": "{:%a %e %B, %H:%M}"
+	},
+	"cpu": {
+		"format": "{usage}% "
+	},
+	"memory": {
+		"format": "{}% "
+	},
+	"temperature": {
+		"critical-threshold": 80,
+		"format": "{temperatureC}°C {icon}",
+		"format-icons": ["", "", ""]
+	},
+	"backlight": {
+		"format": "{percent}% {icon}",
+		"format-icons": ["", ""],
+		"on-scroll-up": "light -A 2",
+		"on-scroll-down": "light -U 2"
+	},
+	"battery": {
+		"states": {
+			"good": 95,
+			"warning": 30,
+			"critical": 15
+		},
+		"format": "{capacity}% {icon}",
+		"format-charging": "{capacity}% ",
+		"format-plugged": "{capacity}% ",
+		"format-alt": "{time} {icon}",
+		"format-icons": ["", "", "", "", ""]
+	},
+	"pulseaudio": {
+		"format": "{volume}% {icon}",
+		"format-muted": "",
+		"format-icons": {
+			"default": ["", ""]
+		},
+		"scroll-step": 1,
+		"on-click": "pavucontrol",
+		"on-click-right": "pactl set-sink-mute @DEFAULT_SINK@ toggle"
+	},
+	"network": {
+		"format-wifi": "",
+		"tooltip-format-wifi": "{essid} ({signalStrength}%)",
+		"format-ethernet": "",
+		"tooltip-format-ethernet": "{ifname}: {ipaddr}/{cidr}",
+		"format-disconnected": "",
+		"tooltip-format-disconnected": "No Internet.",
+		"on-click": "nm-connection-editor"
+	},
+	"wlr/taskbar": {
+		"format": "{icon} {title:.20}",
+		"tooltip-format": "{title}",
+		"on-click": "activate",
+		"on-click-middle": "close",
+		"on-click-right": "minimize-raise"
+	},
+	"custom/theme": {
+		"exec": "theme init",
+		"on-click": "theme switch",
+		"format": "{icon}",
+		"return-type": "json",
+		"format-icons": {
+			"dark": "",
+			"light": ""
+		}
+	}
+}
+
+// vim:set ft=jsonc:
