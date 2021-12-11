@@ -1,7 +1,7 @@
 demostanis linux
 
 To build packages, build the ISO and test it inside QEMU:
-  # make all
+  # make
 
 For other make targets, check the Makefile.
 
