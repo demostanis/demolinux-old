@@ -1,9 +1,11 @@
 #!/bin/sh
 # wrapper script which allows Tor Browser
 # to run in Wayland
-TORBROWSER="$HOME/.local/share/torbrowser/tbb/x86_64/tor-browser_en-US/Browser/start-tor-browser"
+TBB="$HOME/.local/share/torbrowser/tbb/x86_64/tor-browser_en-US/"
+TORBROWSER="$TBB/Browser/start-tor-browser"
 FILE=/usr/lib/python3.9/site-packages/torbrowser_launcher/launcher.py
 SUDO=${SUDO:-sudo}
+THEME=$(cat ~/.themefile)
 
 # as of now, stable Tor Browser releases
 # support Wayland. Uncomment the lines below
@@ -15,6 +17,11 @@ o=$(torbrowser-launcher 2>&1)
 echo "$o" | grep Exiting. >/dev/null
 if [ $? -eq 0 ]; then
 	sed '10,16d' -i "$TORBROWSER"
+
+	if [ "$THEME" = dark ]; then
+		export GTK_THEME=Adwaita:dark
+	fi
+
 	"$TORBROWSER"
 fi
 
