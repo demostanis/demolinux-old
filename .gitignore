@@ -1,5 +1,19 @@
 out/
 work/
 packages/container
-*.pkg.tar.zst
 logs/
+# package databases
+packages/packages.db
+packages/packages.db.tar.zst
+packages/packages.db.tar.zst.old
+packages/packages.files
+packages/packages.files.tar.zst
+packages/packages.files.tar.zst.old
+# exclude package sources
+packages/tobuild/*/*/
+# package tarballs
+packages/tobuild/*/*.tar.gz
+packages/tobuild/*/*.tar.gz.sig
+*.pkg.tar.zst
+# no fucking idea why this is here
+packages/tobuild/clapper/clapper-0.4.0
