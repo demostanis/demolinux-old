@@ -6,12 +6,12 @@ GTKRC="$HOME/.config/gtk-3.0/settings.ini"
 THEMEFILE="$HOME/.themefile"
 
 gtk_variant() {
-	dark=$([ $1 == dark ] && echo true || echo false)
+	dark=$([ $1 = dark ] && echo true || echo false)
 	sed -Ei "s,gtk-application-prefer-dark-theme\s*=\s*[a-z]+,gtk-application-prefer-dark-theme = $dark," "$GTKRC"
 }
 
 qt_theme() {
-	theme=$([ $1 == dark ] && echo KvGnomeDark || echo KvGnome)
+	theme=$([ $1 = dark ] && echo KvGnomeDark || echo KvGnome)
 	kvantummanager --set $theme
 }
 
