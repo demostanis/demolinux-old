@@ -1,0 +1,13 @@
+#!/bin/sh
+# Yes, this is very messy.
+
+if [ $(id -u) -ne 0 ]; then
+	echo please run as root
+	exit 1
+fi
+
+systemctl restart reflector
+pacman -Sy docker python-pip fuse-overlayfs
+sed -Ei's/ExecStart=.*/ExecStart=/usr/bin/dockerd -H fd:// -D --storage-driver=fuse-overlayfs' /usr/lib/systemd/system/docker.service
+pip install clickable-ut
+

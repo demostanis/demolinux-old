@@ -67,3 +67,6 @@ autoload -Uz compinit && compinit
 source \
 /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
+# for pip modules
+PATH="$PATH:$HOME/.local/bin"
+

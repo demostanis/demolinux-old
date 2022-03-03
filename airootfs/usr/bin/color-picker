@@ -1,0 +1,35 @@
+#!/bin/bash
+#
+# License: MIT
+# From https://github.com/jgmdev/wl-color-picker
+
+if [ "$WAYLAND_DISPLAY" = "" ]; then
+    echo This color picker must be run under a valid wayland session.
+    exit 1
+fi
+
+# Get color position
+position=$(slurp -b 00000000 -p)
+
+# Sleep at least for a second to prevet issues with grim always
+# returning improper color.
+sleep 1
+
+# Store the hex color value using graphicsmagick or imagemagick.
+if command -v /usr/bin/gm &> /dev/null; then
+    color=$(grim -g "$position" -t png - \
+        | /usr/bin/gm convert - -format '%[pixel:p{0,0}]' txt:- \
+        | tail -n 1 \
+        | rev \
+        | cut -d ' ' -f 1 \
+        | rev
+    )
+else
+    color=$(grim -g "$position" -t png - \
+        | convert - -format '%[pixel:p{0,0}]' txt:- \
+        | tail -n 1 \
+        | cut -d ' ' -f 4
+    )
+fi
+
+echo $color | wl-copy -n
