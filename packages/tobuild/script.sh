@@ -2,7 +2,6 @@
 
 packages=(
 wlroots
-doctest
 wf-config
 wayfire
 wlogout
@@ -15,7 +14,7 @@ F4FDB18A9937358364B276E9E25D679AF73C6D2F
 )
 
 useradd -s/bin/sh -mG wheel builder 2>/dev/null
-sed -i 's/# \(%wheel ALL=(ALL) NOPASSWD: ALL\)/\1/' /etc/sudoers
+sed -i 's/# \(%wheel ALL=(ALL:ALL) NOPASSWD: ALL\)/\1/' /etc/sudoers
 pacman-key --init 2>/dev/null
 pacman-key --populate archlinux 2>/dev/null
 su builder -c "$(cat <<EOF

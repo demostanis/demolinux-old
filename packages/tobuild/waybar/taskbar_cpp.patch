@@ -28,21 +28,22 @@
  
  /* Icon loading functions */
  static std::vector<std::string> search_prefix()
-@@ -567,7 +588,7 @@
+@@ -606,7 +627,7 @@
      }
      if (!format_before_.empty()) {
          auto txt = fmt::format(format_before_,
 -                    fmt::arg("title", title),
 +                    fmt::arg("title", trailing_dots(title)),
+                     fmt::arg("name", name),
                      fmt::arg("app_id", app_id),
                      fmt::arg("state", state_string()),
-                     fmt::arg("short_state", state_string(true))
-@@ -580,7 +601,7 @@
+@@ -620,7 +641,7 @@
      }
      if (!format_after_.empty()) {
          auto txt = fmt::format(format_after_,
 -                    fmt::arg("title", title),
 +                    fmt::arg("title", trailing_dots(title)),
+                     fmt::arg("name", name),
                      fmt::arg("app_id", app_id),
                      fmt::arg("state", state_string()),
-                     fmt::arg("short_state", state_string(true))
+

@@ -1,12 +1,15 @@
 default: build-packages buildnrun
 
+importkeys:
+	@./scripts/importkeys.sh
+
 build:
 	@./scripts/build.sh
 
 run:
 	@./scripts/run.sh
 
-buildnrun: build run
+buildnrun: importkeys build run
 
 build-packages:
 	@cd packages && \
@@ -24,6 +27,6 @@ ssh:
 	ssh demostanis@localhost -p60022
 
 # oh my god i'm so proud i generated this using kakoune
-# %s^[^\.\n]+:$<ret>Hyge6o<esc>p6<space>hdjgh7K<a-j>
-.PHONY:  build run buildnrun build-packages flash ssh
+# %s^[^@\.\n]+:<ret>Hyge8o<esc>p<space>j10K<a-j>gh<a-w>;2Hdo<esc>hd
+.PHONY: default importkeys build run buildnrun build-packages flash ssh
 

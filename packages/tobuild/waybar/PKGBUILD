@@ -1,7 +1,7 @@
 # Maintainer: Alexis Rouillard <contact@arouillard.fr>
 
 pkgname=waybar
-pkgver=r1727.39f42cd
+pkgver=r1814.91339f6
 pkgrel=1
 pkgdesc='Highly customizable Wayland bar for Sway and Wlroots based compositors (GIT)'
 arch=('x86_64')
@@ -42,7 +42,7 @@ source=(
 
 sha1sums=('SKIP'
           '71cbd94be0be96d6fbf8b367a327c07073d1a459'
-          '6b699a055365a9de9456c5e98af700c50e56d2bd')
+          '5605e1f8e7dfc761fb67514c193f889f5aa51aec')
 
 pkgver() {
     cd "${srcdir}/${pkgname}"
