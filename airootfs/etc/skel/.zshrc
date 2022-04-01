@@ -70,3 +70,24 @@ source \
 # for pip modules
 PATH="$PATH:$HOME/.local/bin"
 
+if [ -n "$DISPLAY" ]; then
+	# whether we are using software rendering
+	glxinfo | grep '\(llvm\|soft\)pipe' >/dev/null 2>&1; qemu=$?
+	# ensure we have a recent GLSL version, glitches occur otherwise
+	glxinfo | grep GLSL | grep -v '1\.' >/dev/null 2>&1; glsl=$?
+
+	if (($qemu > 0 && $glsl == 0)); then
+		grep 'blur \\' $HOME/.wayfire.conf >/dev/null 2>&1
+		if (($? > 0)); then # not done already
+			sed -i 's/autostart \\/autostart \\\
+		blur \\/' $HOME/.wayfire.conf
+		cat >>$HOME/.wayfire.conf<<EOF
+[animate]
+close_animation = fire
+EOF
+			# Ain't that so fucking ugly
+			dconf write /com/gexperts/Tilix/profiles/2b7c4080-0ddd-46c5-8f23-563fd3ba789d/background-transparency-percent 50
+		fi
+	fi
+fi
+

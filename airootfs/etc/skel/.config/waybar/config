@@ -2,7 +2,9 @@
 	"layer": "top",
 	"position": "top",
 	"height": 27,
-	"modules-left": ["custom/theme", "wlr/taskbar"],
+	// wlr/taskbar is on hold because it sucks
+	// well actually waybar itself sucks
+	"modules-left": ["custom/theme"], //, "wlr/taskbar"],
 	"modules-center": ["clock"],
 	"modules-right": ["network", "cpu", "memory", "temperature", "battery", "backlight", "pulseaudio", "keyboard-state"],
 	"keyboard-state": {

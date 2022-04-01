@@ -1,6 +1,6 @@
 adobe-source-code-pro-fonts
-android-tools
 alacritty
+android-tools
 arch-install-scripts
 base
 base-devel
@@ -10,10 +10,14 @@ chntpw
 clapper
 dunst
 edk2-shell
+emoji-font
 expac
 fd
 ffmpegthumbnailer
 firefox
+firefox-dark-reader
+firefox-tridactyl
+firefox-ublock-origin
 gcolor3
 git
 gpm
@@ -30,10 +34,12 @@ lynx
 man
 man-db
 memtest86+
+mesa-utils
 mkinitcpio
 mkinitcpio-archiso
 mpv
 nemo
+neo
 neovim
 networkmanager
 network-manager-applet
@@ -50,6 +56,7 @@ pulseaudio
 qt5-wayland
 reflector
 ripgrep
+rofimoji
 slurp
 swappy
 swaybg
@@ -57,6 +64,7 @@ syslinux
 tilix
 tmux
 torbrowser-launcher
+ttf-joypixels
 vim
 vimpager
 waybar
@@ -64,6 +72,8 @@ wayfire
 waylock
 wl-clipboard
 wlogout
+wofi
+wtype
 youtube-dl
 zathura
 zathura-pdf-mupdf

@@ -7,6 +7,7 @@ wayfire
 wlogout
 waybar
 clapper
+neo
 )
 pgpkeys=(
 # Haden Collins <collinshaden@gmail.com> (wlogout)
