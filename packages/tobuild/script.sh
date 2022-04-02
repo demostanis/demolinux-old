@@ -1,6 +1,8 @@
 #!/bin/sh
 
 packages=(
+firefox-userchromejs
+firefox-vimfx
 wlroots
 wf-config
 wayfire

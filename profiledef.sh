@@ -19,6 +19,6 @@ file_permissions=(
   ["/usr/bin/torbrowser"]="0:0:755"
   ["/usr/bin/themed-bemenu"]="0:0:755"
   ["/usr/bin/theme"]="0:0:755"
-  ["/usr/bin/utdevsetup"]="0:0:755"
+  ["/usr/bin/effects"]="0:0:755"
   ["/usr/bin/color-picker"]="0:0:755"
 )

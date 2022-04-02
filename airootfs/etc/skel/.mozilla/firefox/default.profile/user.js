@@ -45,3 +45,7 @@ user_pref("privacy.partition.network_state.ocsp_cache", true);
 user_pref("privacy.trackingprotection.enabled", true);
 user_pref("privacy.trackingprotection.socialtracking.enabled", true);
 
+user_pref("ui.key.accelKey", 18);
+user_pref("extensions.pocket.enabled", false);
+user_pref("general.autoScroll", true);
+
