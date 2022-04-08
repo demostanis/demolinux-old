@@ -3,3 +3,4 @@ export PAGER=vimpager
 export QT_QPA_PLATFORM=wayland
 export QT_STYLE_OVERRIDE=kvantum
 export MOZ_ENABLE_WAYLAND=1
+export GTK_THEME=Adwaita:dark

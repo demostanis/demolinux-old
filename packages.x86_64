@@ -16,16 +16,18 @@ fd
 ffmpegthumbnailer
 firefox
 firefox-dark-reader
+firefox-keyconfig
+firefox-sponsorblock
 firefox-ublock-origin
 firefox-userchromejs
 firefox-vimfx
+firefox-ytarb
 gcolor3
 git
 gnome-dictionary
 gpm
 grim
 imagemagick
-iwd
 kvantum-qt5
 libnotify
 light
@@ -41,6 +43,7 @@ mkinitcpio
 mkinitcpio-archiso
 mpv
 nemo
+nemo-fileroller
 neo
 neovim
 networkmanager
@@ -76,6 +79,7 @@ wl-clipboard
 wlogout
 wofi
 wtype
+yad
 youtube-dl
 zathura
 zathura-pdf-mupdf

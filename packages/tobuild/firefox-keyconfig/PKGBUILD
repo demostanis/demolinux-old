@@ -1,0 +1,16 @@
+pkgname=firefox-keyconfig
+pkgver=0.24.6
+pkgrel=1
+pkgdesc="Vim keyboard shortcuts for Firefox"
+url="https://dorando.at"
+license=('MIT')
+arch=('any')
+depends=(firefox-userchromejs)
+source=("$pkgname-$pkgver.xpi::https://github.com/xiaoxiaoflood/firefox-scripts/blob/master/extensions/keyconfig/keyconfig.xpi?raw=true")
+noextract=("$pkgname-$pkgver.xpi")
+
+package() {
+    install -Dm644 "$pkgname-$pkgver.xpi" \
+        "${pkgdir}/usr/lib/firefox/browser/extensions/keyconfig@mozilla.dorando.at.xpi"
+}
+sha256sums=('8205897b65d29cf16edc1e67151e726d5d916d9634bf87f6c5ca9e52ccae693e')

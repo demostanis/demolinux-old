@@ -1,6 +1,9 @@
 #!/bin/sh
 
 packages=(
+firefox-keyconfig
+firefox-ytarb
+firefox-sponsorblock
 firefox-userchromejs
 firefox-vimfx
 wlroots

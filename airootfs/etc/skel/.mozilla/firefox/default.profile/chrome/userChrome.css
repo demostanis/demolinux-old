@@ -16,7 +16,9 @@ html, html > *, html > * > *, .browser-toolbar  {
 }
 
 .tab-background[selected=true] {
-  background: none !important;
+	background: rgba(167, 79, 255, 0.29) !important;
+  border-radius: 6px;
+  border: none !important;
 }
 
 tab[selected="true"]::after, .tabbrowser-tab[beforeselected-visible]::after {

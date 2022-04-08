@@ -1,7 +1,1 @@
-#!/bin/sh
-# special handling for Tor Browser which
-# doesn't respect GTK theme variant
-
-export GTK_THEME=Adwaita:dark
-torbrowser-launcher
-
+/usr/bin/torbrowser-launcher

@@ -1,0 +1,16 @@
+pkgname=firefox-sponsorblock
+pkgver=4.2.1
+pkgrel=1
+pkgdesc="Bypass YouTube's age verification"
+url="https://github.com/ajayyy/SponsorBlock"
+license=('LGPL3')
+arch=('any')
+depends=(firefox)
+source=("$pkgname-$pkgver.xpi::https://github.com/ajayyy/SponsorBlock/releases/download/$pkgver/FirefoxExtension.zip")
+noextract=("$pkgname-$pkgver.xpi")
+
+package() {
+    install -Dm644 "$pkgname-$pkgver.xpi" \
+        "${pkgdir}/usr/lib/firefox/browser/extensions/sponsorBlocker@ajay.app.xpi"
+}
+sha256sums=('9b8a79836da0cff9314000008bd95cdbc7cc0bb054e8d87fd622647a8114bc1a')

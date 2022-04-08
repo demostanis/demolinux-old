@@ -15,5 +15,7 @@ packages/tobuild/*/*/
 packages/tobuild/*/*.tar.gz
 packages/tobuild/*/*.tar.gz.sig
 *.pkg.tar.zst
-# no fucking idea why this is here
-packages/tobuild/clapper/clapper-0.4.1
+
+# build files left despite -c flag on makepkg
+packages/tobuild/clapper/clapper-*
+packages/tobuild/firefox-*/*.xpi

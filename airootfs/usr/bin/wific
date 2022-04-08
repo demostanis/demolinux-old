@@ -1,13 +1,16 @@
 #!/bin/sh
 
 ssid=$(nmcli device wifi list | tail -n+2 | sed 's/ \+/ /g;s/^*//' | cut -d\  -f3,6,9- | awk '{for(i=0;i<3;i++)sub(" ","\n")}1' | tail -n+1 | sed '2~4s/$/ MBit\/s/' | yad --width 500 --height 200 --title "Choose network" --list --column SSID --column Rate --column Signal --column Security | cut -d\| -f1)
-passphrase=$(yad --text "Passphrase for $ssid" --entry --hide-text)
-
-if [ -n "$passphrase" ]; then
+if [ -n "$ssid" ]; then
+	passphrase=$(yad --text "Passphrase for $ssid" --entry --hide-text)
 	out=$(nmcli device wifi connect "$ssid" password "$passphrase")
 	echo "$out" | grep successfully
 	if (( $? == 0 )); then
 		notify-send "$ssid" 'Successfully connected'
+	else
+		notify-send "$ssid" 'Failed to connect: '$out
 	fi
+else
+	echo No network choosen
+	exit 1
 fi
-
