@@ -16,7 +16,6 @@ airootfs_image_tool_options=('-d3zlz4hc,12')
 file_permissions=(
   ["/etc/shadow"]="0:0:400"
   ["/usr/bin/lofi"]="0:0:755"
-  ["/usr/bin/torbrowser"]="0:0:755"
   ["/usr/bin/themed-bemenu"]="0:0:755"
   ["/usr/bin/theme"]="0:0:755"
   ["/usr/bin/effects"]="0:0:755"
