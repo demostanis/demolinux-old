@@ -40,7 +40,9 @@ infot() {
 		echo -e "\x1b[1m[*] \x1b[32m$(sed 's#%\([0-9]\+\)s#'$((($t==0))&&echo now||echo 'in\x1b[0m<space>'$t'<space>\x1b[1;32msecond'$((($t>1))&&echo s))'#' <<< $@ | sed 's/<space>/ /g')\x1b[0m"
 		t=$(($t-1))
 		sleep 1
-	done
+	done&!
+	# stop if return is pressed
+	p=$!; read -st $((t+1)); kill $p
 }
 
 # calculate time the last command

@@ -1,8 +1,3 @@
-# setting some dconf settings
-# it's better than having to copy manually
-# the binary file into airootfs
-dconf write /com/gexperts/Tilix/theme-variant "'dark'"
-
 if [ `tty` = /dev/tty1 ]; then
 	[ $((`tput cols` >= 120)) ] && cat /etc/motd
 	info Hacking NSA...
