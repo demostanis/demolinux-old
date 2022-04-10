@@ -1,0 +1,2 @@
+#!/bin/sh
+mpv https://www.youtube.com/watch\?v=7NOSDKb0HlU --no-video

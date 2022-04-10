@@ -1,0 +1,8 @@
+{
+	"name": "uBlock0@raymondhill.net",
+	"description": "ignored",
+	"type": "storage",
+	"data": {
+		"adminSettings": "{\"selectedFilterLists\":[\"user-filters\",\"ublock-filters\",\"ublock-badware\",\"ublock-privacy\",\"ublock-quick-fixes\",\"ublock-abuse\",\"ublock-unbreak\",\"easylist\",\"easyprivacy\",\"urlhaus-1\",\"adguard-annoyance\",\"adguard-social\",\"fanboy-thirdparty_social\",\"fanboy-cookiemonster\",\"fanboy-annoyance\",\"fanboy-social\",\"ublock-annoyances\",\"plowe-0\"],\"userFilters\":\"! Google consent, \\\"before you continue\\\"\\nwww.google.*##^script:has-text(consentCookiePayload)\\nwww.google.*##+js(acis, document.cookie, YES+)\\ngoogle.*##+js(aeld, DOMContentLoaded, CONSENT)\\n||consent.google.com^\\n\\n! YT consent v2\\nyoutube.com##+js(set, ytInitialData.topbar.desktopTopbarRenderer.interstitial.consentBumpV2Renderer, undefined)\\nyoutube.com##+js(json-prune, [].response.overlay.consentBumpV2Renderer topbar.desktopTopbarRenderer.interstitial.consentBumpV2Renderer overlay.consentBumpV2Renderer response.overlay.consentBumpV2Renderer)\\n\"}"
+	}
+}
