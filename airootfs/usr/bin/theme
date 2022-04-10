@@ -8,6 +8,7 @@ THEMEFILE="$HOME/.themefile"
 gtk_variant() {
 	dark=$([ $1 = dark ] && echo true || echo false)
 	sed -Ei "s,gtk-application-prefer-dark-theme\s*=\s*[a-z]+,gtk-application-prefer-dark-theme = $dark," "$GTKRC"
+	gsettings set org.gnome.desktop.interface color-scheme prefer-$1
 }
 
 qt_theme() {

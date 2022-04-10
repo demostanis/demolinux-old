@@ -1,1 +1,17 @@
-/usr/bin/torbrowser-launcher
+#!/bin/sh
+
+# for some reason Tor Browser does
+# not honor preferred color scheme
+# in settings.ini
+# thus, we use this workaround
+
+THEME=$(< $HOME/.themefile)
+case $THEME in
+	dark)
+		export GTK_THEME=Adwaita:dark
+		;;
+	light)
+		export GTK_THEME=Adwaita
+		;;
+esac
+torbrowser-launcher
