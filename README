@@ -5,12 +5,6 @@ To build packages, build the ISO and test it inside QEMU:
 
 For other make targets, check the Makefile.
 
-Usage notes:
-  When you upgrade the system (i.e. pacman -Syu inside
-the booted environment), you might end up with the
-non-patched version of Waybar, which will make your top bar
-have ugly and useless whitespace if you restart it.
-
 Maintainance notes:
   Check if Wayfire has been updated to support sending
 to Waybar only the windows in the current workspace.
