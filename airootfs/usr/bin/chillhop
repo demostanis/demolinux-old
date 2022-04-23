@@ -1,7 +1,7 @@
 #!/bin/sh
-if [ $1 = stop ]; then
+if [ "$1" = stop ]; then
 	kill $(< ~/.chillhop.pid)
 else
-	mpv https://www.youtube.com/watch\?v=7NOSDKb0HlU --no-video
+	mpv https://www.youtube.com/watch\?v=7NOSDKb0HlU --no-video &
 	echo $! > ~/.chillhop.pid
 fi
