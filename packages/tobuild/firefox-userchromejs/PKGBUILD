@@ -16,4 +16,4 @@ package() {
   install defaults/pref/config-prefs.js $pkgdir/usr/lib/firefox/defaults/pref/
 }
 
-sha256sums=('410608580c19e7b2d04fc52bb74d08f7bd1f0e8689f088f34d410191e3aa111e')
+sha256sums=('43dce5c3754f713e6365343705ea6c6f6b4754e928ec45c939a810d477539417')

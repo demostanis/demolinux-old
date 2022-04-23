@@ -6,6 +6,7 @@ firefox-ytarb
 firefox-sponsorblock
 firefox-userchromejs
 firefox-vimfx
+wdisplays
 wlroots
 wf-config
 wayfire

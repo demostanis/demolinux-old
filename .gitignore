@@ -19,3 +19,4 @@ packages/tobuild/*/*.tar.gz.sig
 # build files left despite -c flag on makepkg
 packages/tobuild/clapper/clapper-*
 packages/tobuild/firefox-*/*.xpi
+fx-folder.zip?raw=true

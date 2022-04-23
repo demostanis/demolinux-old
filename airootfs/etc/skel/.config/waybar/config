@@ -1,5 +1,6 @@
 {
 	"layer": "top",
+	// To be later on modified
 	"position": "top",
 	"height": 27,
 	// wlr/taskbar is on hold because it sucks
