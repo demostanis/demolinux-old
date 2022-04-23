@@ -1,6 +1,5 @@
 #!/bin/sh
-pgrep chillhop > /dev/null
-if [ $? = 0 ]; then
+if [ -e ~/.chillhop.pid ]; then
 	printf '  '
 	curl -s 'https://chillhop.com/wp-admin/admin-ajax.php?player_get_livestream_tracks' --data-raw 'action=player_get_livestream_tracks&youtubeid=7NOSDKb0HlU&type=history&offset=0' --compressed -o- | jq -j '.current | ([.artists[].name] | join(", ")), " — ", .title'
 fi
