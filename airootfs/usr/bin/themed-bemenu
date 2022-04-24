@@ -2,8 +2,8 @@
 THEMEFILE="$HOME/.themefile"
 CURRENT_THEME=$(cat "$THEMEFILE")
 if [ "$CURRENT_THEME" = light ]; then
-	bemenu-run -bi --{n,f,t,h,s,sc}b=\#c5c9c6 --{n,f,t}f=\#1c1e21 $@
+	${0##*/themed-} -bi --{n,f,t,h,s,sc}b=\#c5c9c6 --{n,f,t}f=\#1c1e21 $@
 else
-	bemenu-run -bi --{n,f,t,h,s,sc}b=\#1c1e21 --{n,f,t}f=\#c5c9c6 $@
+	${0##*/themed-} -bi --{n,f,t,h,s,sc}b=\#1c1e21 --{n,f,t}f=\#c5c9c6 $@
 fi
 

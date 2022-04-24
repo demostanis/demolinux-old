@@ -6,6 +6,7 @@ firefox-ytarb
 firefox-sponsorblock
 firefox-userchromejs
 firefox-vimfx
+lsb-release
 wdisplays
 wlroots
 wf-config

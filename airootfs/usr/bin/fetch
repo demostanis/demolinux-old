@@ -5,4 +5,4 @@
 # (\x1b[14t)
 # this is a workaround
 clear
-paste <(chafa --size 38x50 /usr/share/pixmaps/nyarch.png) <(neofetch --backend off)
+paste <(chafa --size 38x50 /usr/share/pixmaps/nyarch.png) <(neofetch --backend off --disable term)

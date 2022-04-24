@@ -1,6 +1,9 @@
 [global]
 font = Cantarell
 markup = yes
+follow = keyboard
+origin = top-center
+offset = 0x20
 # subject in bold, app name and body
 format = "<b>%s</b> (%a)\n%b"
 # do not show (U) and (A)
@@ -8,5 +11,8 @@ show_indicators = false
 dmenu = themed-bemenu -p Choose:
 frame_width = 0
 corner_radius = 5
+
+[urgency_normal]
+background = "#5B3F81"
 
 # vim:set ft=dosini:
