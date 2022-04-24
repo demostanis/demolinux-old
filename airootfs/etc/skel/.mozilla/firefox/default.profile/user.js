@@ -54,3 +54,6 @@ user_pref("extensions.dorandoKeyConfig.main.key_close", "!][][");
 // Hide Youtube Age Restriction Bypass from toolbar
 user_pref("browser.uiCustomization.state", "{\"placements\":{\"widget-overflow-fixed-list\":[],\"nav-bar\":[\"back-button\",\"forward-button\",\"stop-reload-button\",\"customizableui-special-spring1\",\"urlbar-container\",\"customizableui-special-spring2\",\"downloads-button\",\"fxa-toolbar-menu-button\",\"VimFxButton\",\"addon_darkreader_org-browser-action\",\"ublock0_raymondhill_net-browser-action\"],\"toolbar-menubar\":[\"menubar-items\"],\"TabsToolbar\":[\"tabbrowser-tabs\",\"new-tab-button\",\"alltabs-button\"],\"PersonalToolbar\":[\"import-button\",\"personal-bookmarks\"]},\"seen\":[\"VimFxButton\",\"simple-youtube-age-restriction-bypass_zerody_one-browser-action\",\"addon_darkreader_org-browser-action\",\"ublock0_raymondhill_net-browser-action\",\"developer-button\",\"sponsorblocker_ajay_app-browser-action\"],\"dirtyAreaCache\":[\"nav-bar\",\"PersonalToolbar\"],\"currentVersion\":17,\"newElementCount\":2}");
 
+// Allow extensions to run on sites like support.mozilla.com
+user_pref("extensions.webextensions.restrictedDomains", "");
+
