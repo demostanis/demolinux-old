@@ -23,5 +23,6 @@ file_permissions=(
   ["/usr/bin/theme"]="0:0:755"
   ["/usr/bin/effects"]="0:0:755"
   ["/usr/bin/color-picker"]="0:0:755"
+  ["/usr/bin/fetch"]="0:0:755"
   ["/usr/bin/wific"]="0:0:755"
 )

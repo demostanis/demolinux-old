@@ -6,6 +6,7 @@ base
 base-devel
 bemenu-wayland
 bind
+chafa
 chntpw
 clapper
 dunst
@@ -46,6 +47,7 @@ mpv
 nemo
 nemo-fileroller
 neo
+neofetch
 neovim
 networkmanager
 network-manager-applet
