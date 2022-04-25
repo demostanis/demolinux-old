@@ -5,6 +5,7 @@ fi
 
 # some key bindings
 bindkey ^R history-incremental-pattern-search-backward
+bindkey '^[[Z' reverse-menu-complete
 
 # to be able to show
 # help for internal commands

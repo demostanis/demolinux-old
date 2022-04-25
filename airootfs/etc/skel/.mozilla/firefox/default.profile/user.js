@@ -57,3 +57,9 @@ user_pref("browser.uiCustomization.state", "{\"placements\":{\"widget-overflow-f
 // Allow extensions to run on sites like support.mozilla.com
 user_pref("extensions.webextensions.restrictedDomains", "");
 
+// Prevent address bar from recommending shitty websites
+user_pref("browser.newtabpage.activity-stream.showSponsoredTopSites", false);
+user_pref("browser.newtabpage.pinned", "[]");
+user_pref("browser.search.hiddenOneOffs", "Amazon.fr,Bing");
+user_pref("browser.urlbar.suggest.topsites", false);
+
