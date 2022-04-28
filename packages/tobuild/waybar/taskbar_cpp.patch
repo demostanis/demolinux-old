@@ -1,8 +1,8 @@
---- src/modules/wlr/taskbar.cpp	2021-10-26 11:56:17.765133246 +0200
-+++ src/modules/wlr/taskbar.cpp	2021-10-26 11:54:06.185135955 +0200
-@@ -44,6 +44,27 @@
-     return rtrim(ltrim(s));
- }
+--- src/modules/wlr/taskbar.cpp.orig	2022-04-28 00:59:02.287519079 +0200
++++ src/modules/wlr/taskbar.cpp	2022-04-28 01:01:39.230516163 +0200
+@@ -21,6 +21,28 @@
+ #include "util/format.hpp"
+ #include "util/string.hpp"
  
 +static std::string del_until_spaces(const std::string& s, int spaces_count)
 +{
@@ -25,25 +25,25 @@
 +	}
 +	return s2;
 +}
++ 
+ namespace waybar::modules::wlr {
  
  /* Icon loading functions */
- static std::vector<std::string> search_prefix()
-@@ -606,7 +627,7 @@
-     }
-     if (!format_before_.empty()) {
-         auto txt = fmt::format(format_before_,
--                    fmt::arg("title", title),
-+                    fmt::arg("title", trailing_dots(title)),
-                     fmt::arg("name", name),
-                     fmt::arg("app_id", app_id),
-                     fmt::arg("state", state_string()),
-@@ -620,7 +641,7 @@
-     }
-     if (!format_after_.empty()) {
-         auto txt = fmt::format(format_after_,
--                    fmt::arg("title", title),
-+                    fmt::arg("title", trailing_dots(title)),
-                     fmt::arg("name", name),
-                     fmt::arg("app_id", app_id),
-                     fmt::arg("state", state_string()),
-
+@@ -535,7 +557,7 @@
+     app_id = Glib::Markup::escape_text(app_id);
+   }
+   if (!format_before_.empty()) {
+-    auto txt = fmt::format(format_before_, fmt::arg("title", title), fmt::arg("name", name),
++    auto txt = fmt::format(format_before_, fmt::arg("title", trailing_dots(title)), fmt::arg("name", name),
+                            fmt::arg("app_id", app_id), fmt::arg("state", state_string()),
+                            fmt::arg("short_state", state_string(true)));
+     if (markup)
+@@ -545,7 +567,7 @@
+     text_before_.show();
+   }
+   if (!format_after_.empty()) {
+-    auto txt = fmt::format(format_after_, fmt::arg("title", title), fmt::arg("name", name),
++    auto txt = fmt::format(format_after_, fmt::arg("title", trailing_dots(title)), fmt::arg("name", name),
+                            fmt::arg("app_id", app_id), fmt::arg("state", state_string()),
+                            fmt::arg("short_state", state_string(true)));
+     if (markup)

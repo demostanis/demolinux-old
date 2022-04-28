@@ -1,18 +1,17 @@
 #!/bin/sh
 
 packages=(
+firefox-userchromejs
 firefox-keyconfig
+firefox-vimfx
 firefox-ytarb
 firefox-sponsorblock
-firefox-userchromejs
-firefox-vimfx
 lsb-release
-wdisplays
-wlroots
 wf-config
 wayfire
 wlogout
 waybar
+wdisplays
 clapper
 neo
 )

@@ -1,34 +1,32 @@
-# Maintainer: Solomon Choina <shlomochoina@gmail.com>
-# Co-Maintainer: Frank Tao <frank.tao@uwaterloo.ca>
+# thank you leo_sk
+
 pkgname=wayfire
-pkgver=0.7.2
-pkgrel=2
+pkgver=0.7.3
+pkgrel=1
 pkgdesc="3D wayland compositor"
-arch=('x86_64')
-url="https://github.com/ammen99/wayfire"
-license=('MIT')
-depends=('wlroots' 'cairo' 'libjpeg' 'wf-config' 'seatd' 'libinput' 'pango' 'polkit')
-makedepends=('git' 'glm' 'meson' 'ninja' 'wayland-protocols' 'doctest' 'cmake')
-provides=("${pkgname%-git}")
-conflicts=("${pkgname%-git}")
-replaces=()
-options=()
-source=('git+https://github.com/WayfireWM/wayfire#commit=6720f6a6e902d2a100158b31f611cddb1a2568bd')
-sha256sums=('SKIP')
+arch=(x86_64)
+url=https://wayfire.org
+license=(custom:MIT)
+depends=(cairo 'wf-config>=0.5' libjpeg libinput wlroots)
+makedepends=(meson ninja wayland-protocols glm cmake doctest)
+conflicts=("${pkgname}-git")
+source=("https://github.com/WayfireWM/${pkgname}/releases/download/v${pkgver}/${pkgname}-${pkgver}.tar.xz")
+sha256sums=(99d1d51b1db88c30de6484094fd02df39a82cbb503361e52abc1d94f8357cb5f)
 
 build() {
-	cd "$srcdir/wayfire/"
-  arch-meson \
-    -Duse_system_wlroots=enabled \
-    -Duse_system_wfconfig=enabled \
-    build
-  ninja -C build
+    rm -rf build
+    arch-meson "${pkgname}-${pkgver}" build --buildtype=debug -Duse_system_wfconfig=enabled -Duse_system_wlroots=enabled -Db_sanitize=address,undefined
+    ninja -C build
+}
+
+check () {
+    meson test -C build
 }
 
 package() {
-	cd "$srcdir/wayfire"
-	DESTDIR="$pkgdir/" ninja -C build install
-  install -Dm644 wayfire.desktop "$pkgdir"/usr/share/wayland-sessions/wayfire.desktop 
-  cp wayfire.ini "$pkgdir"/usr/share
-	chmod +s "$pkgdir"/usr/bin/wayfire
+    DESTDIR="${pkgdir}/" ninja -C build install
+    cd "${pkgname}-${pkgver}"
+    install -Dm644 wayfire.desktop "${pkgdir}/usr/share/wayland-sessions/wayfire.desktop"
+    install -Dm644 wayfire.ini "${pkgdir}/usr/share/doc/${pkgname}/wayfire.ini"
+    install -Dm645 LICENSE "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
 }

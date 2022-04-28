@@ -1,7 +1,7 @@
 # Maintainer: Alexis Rouillard <contact@arouillard.fr>
 
 pkgname=waybar
-pkgver=r1816.4635e8c
+pkgver=r1933.caee2e6
 pkgrel=1
 pkgdesc='Highly customizable Wayland bar for Sway and Wlroots based compositors (GIT)'
 arch=('x86_64')
@@ -37,12 +37,12 @@ optdepends=(
 )
 
 source=(
-	"${pkgname}::git://github.com/Alexays/Waybar"
+	"${pkgname}::git+https://github.com/Alexays/Waybar"
 	keyboard_state_cpp.patch taskbar_cpp.patch)
 
 sha1sums=('SKIP'
-          '71cbd94be0be96d6fbf8b367a327c07073d1a459'
-          '5605e1f8e7dfc761fb67514c193f889f5aa51aec')
+          'b6777673fb308d42dd7f39e76c339acf0f26d5c5'
+          'e74104a6961ddfafc3c8ae6ed2589634350337a9')
 
 pkgver() {
     cd "${srcdir}/${pkgname}"
