@@ -15,7 +15,7 @@ sha256sums=(99d1d51b1db88c30de6484094fd02df39a82cbb503361e52abc1d94f8357cb5f)
 
 build() {
     rm -rf build
-    arch-meson "${pkgname}-${pkgver}" build --buildtype=debug -Duse_system_wfconfig=enabled -Duse_system_wlroots=enabled -Db_sanitize=address,undefined
+    arch-meson "${pkgname}-${pkgver}" build -Duse_system_wfconfig=enabled -Duse_system_wlroots=enabled
     ninja -C build
 }
 
