@@ -12,8 +12,7 @@ packages/packages.files.tar.zst.old
 # exclude package sources
 packages/tobuild/*/*/
 # package tarballs
-packages/tobuild/*/*.tar.gz
-packages/tobuild/*/*.tar.gz.sig
+packages/tobuild/*/*.tar.*
 *.pkg.tar.zst
 
 # build files left despite -c flag on makepkg
