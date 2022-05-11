@@ -1,6 +1,7 @@
 #!/bin/sh
 
 packages=(
+lokinet
 firefox-userchromejs
 firefox-keyconfig
 firefox-vimfx

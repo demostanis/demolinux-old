@@ -5,6 +5,8 @@ if [ -e /sys/class/drm/card0-LVDS-1 ]; then
 	sed -i 's/\/\/ To be later on modified/"output": "LVDS-1",/' ~/.config/waybar/config
 fi
 
+lokinet-bootstrap > /dev/null
+
 if [ `tty` = /dev/tty1 ]; then
 	[ $((`tput cols` >= 120)) ] && cat /etc/motd
 	info Hacking NSA...
