@@ -93,7 +93,7 @@
 		"format": ""
 	},
 	"custom/lokinet": {
-		"on-click": "lokinet-vpn --up",
+		"on-click": "lokinet-vpn --up --exit exit.loki",
 		"on-click-right": "lokinet-vpn --down",
 		"exec": "sh -c 'echo && lokinet-vpn --status'",
 		"interval": 5,
