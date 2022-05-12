@@ -5,7 +5,7 @@
 	"height": 27,
 	// wlr/taskbar is on hold because it sucks
 	// well actually waybar itself sucks
-	"modules-left": ["custom/theme", "custom/effects", "custom/song"], //, "wlr/taskbar"],
+	"modules-left": ["custom/theme", "custom/effects", "custom/lokinet", "custom/song"], //, "wlr/taskbar"],
 	"modules-center": ["clock"],
 	"modules-right": ["network", "cpu", "memory", "temperature", "battery", "backlight", "pulseaudio", "keyboard-state"],
 	"keyboard-state": {
@@ -91,6 +91,13 @@
 		"exec": "effects init",
 		"return-type": "json",
 		"format": ""
+	},
+	"custom/lokinet": {
+		"on-click": "lokinet-vpn --up",
+		"on-click-right": "lokinet-vpn --down",
+		"exec": "sh -c 'echo && lokinet-vpn --status'",
+		"interval": 5,
+		"format": ""
 	},
 	"custom/song": {
 		"exec": "song",
