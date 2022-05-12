@@ -1,6 +1,6 @@
 # Maintainer: Solomon Choina <shlomochoina@gmail.com>
 pkgname=wf-config
-pkgver=0.7.1.r0.g62e3897
+pkgver=0.7.1.r3.ge42a387
 pkgrel=1
 pkgdesc="A library for managing configuration files, written for wayfire"
 arch=('x86_64')
@@ -12,7 +12,7 @@ makedepends=('git' 'wlroots' 'meson' 'ninja' 'wayland-protocols'
 provides=("wf-config=0.4.0")
 conflicts=("${pkgname%-git}")
 replaces=()
-source=('git+https://github.com/WayfireWM/wf-config#commit=62e3897f207f49b1a3bbb85ba4b11d9fea239ec1')
+source=('git+https://github.com/WayfireWM/wf-config')
 sha256sums=('SKIP')
 
 pkgver() {

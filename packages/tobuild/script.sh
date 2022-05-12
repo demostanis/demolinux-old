@@ -8,6 +8,7 @@ firefox-vimfx
 firefox-ytarb
 firefox-sponsorblock
 lsb-release
+wlroots
 wf-config
 wayfire
 wlogout

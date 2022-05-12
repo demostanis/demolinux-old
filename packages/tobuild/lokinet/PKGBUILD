@@ -40,6 +40,7 @@ package() {
     install -D -m 644 LICENSE "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
     cd build
     make DESTDIR="$pkgdir" install
+    setcap cap_net_admin,cap_net_bind_service=+eip "$pkgdir/usr/bin/lokinet"
 
     install -D -m 644 "$srcdir/$pkgname/contrib/archlinux/lokinet.service"                "$pkgdir/usr/lib/systemd/system/lokinet.service"
     install -D -m 644 "$srcdir/$pkgname/contrib/archlinux/lokinet-vpn@.service"           "$pkgdir/usr/lib/systemd/system/lokinet-vpn@.service"
