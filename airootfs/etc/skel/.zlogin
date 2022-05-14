@@ -5,7 +5,10 @@ if [ -e /sys/class/drm/card0-LVDS-1 ]; then
 	sed -i 's/\/\/ To be later on modified/"output": "LVDS-1",/' ~/.config/waybar/config
 fi
 
-lokinet-bootstrap > /dev/null
+if [ ! -e ~/.config/dconf ]; then
+	dconf load / < ~/.config/default-dconf
+	rm ~/.config/default-dconf
+fi
 
 if [ `tty` = /dev/tty1 ]; then
 	[ $((`tput cols` >= 120)) ] && cat /etc/motd

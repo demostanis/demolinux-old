@@ -1,22 +1,6 @@
 #!/bin/sh
 
-packages=${*:-
-lokinet
-firefox-userchromejs
-firefox-keyconfig
-firefox-vimfx
-firefox-ytarb
-firefox-sponsorblock
-lsb-release
-wlroots
-wf-config
-wayfire
-wlogout
-waybar
-wdisplays
-clapper
-neo
-}
+packages=${*:-lokinet firefox-userchromejs firefox-keyconfig firefox-vimfx firefox-ytarb firefox-sponsorblock lsb-release wlroots wf-config wayfire wlogout waybar wdisplays clapper neo}
 pgpkeys=(
 # Haden Collins <collinshaden@gmail.com> (wlogout)
 F4FDB18A9937358364B276E9E25D679AF73C6D2F

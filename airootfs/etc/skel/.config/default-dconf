@@ -1,0 +1,4 @@
+# this file is piped to `dconf load /`
+# in ~/.zlogin if ! -e ~/.config/dconf
+[org/gnome/desktop/interface]
+color-scheme='prefer-dark'
