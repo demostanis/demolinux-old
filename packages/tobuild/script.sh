@@ -1,6 +1,6 @@
 #!/bin/sh
 
-packages=(
+packages=${*:-
 lokinet
 firefox-userchromejs
 firefox-keyconfig
@@ -16,7 +16,7 @@ waybar
 wdisplays
 clapper
 neo
-)
+}
 pgpkeys=(
 # Haden Collins <collinshaden@gmail.com> (wlogout)
 F4FDB18A9937358364B276E9E25D679AF73C6D2F

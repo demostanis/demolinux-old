@@ -17,5 +17,5 @@ if [ ! -d container/etc ]; then
 	pacstrap -c container base base-devel
 fi
 systemd-nspawn -D container \
-	--bind="$(pwd)"/tobuild:/root /root/script.sh
+	--bind="$(pwd)"/tobuild:/root /root/script.sh $@
 

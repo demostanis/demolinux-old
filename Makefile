@@ -13,7 +13,7 @@ buildnrun: importkeys build run
 
 build-packages:
 	@cd packages && \
-	./build.sh && \
+	./build.sh $(P) && \
 	./repo.sh
 
 # make DEVICE=/dev/sdx flash
