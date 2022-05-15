@@ -13,11 +13,18 @@ provides=("${pkgname%-git}")
 conflicts=("${pkgname%-git}")
 replaces=()
 options=()
-source=('git+https://github.com/WayfireWM/wayfire#commit=6720f6a6e902d2a100158b31f611cddb1a2568bd')
-sha256sums=('SKIP')
+source=('git+https://github.com/WayfireWM/wayfire#commit=6720f6a6e902d2a100158b31f611cddb1a2568bd'
+	'scale_cpp.patch')
+sha256sums=('SKIP'
+            '6bbeeae52f2122f190825ecbd32cc512f9898c292c10a73cc1578f05459098ce')
+
+prepare() {
+	    cd "$srcdir/wayfire"
+	    patch --forward --strip=0 --input="${srcdir}/scale_cpp.patch"
+}
 
 build() {
-	cd "$srcdir/wayfire/"
+	cd "$srcdir/wayfire"
   arch-meson \
     -Duse_system_wlroots=enabled \
     -Duse_system_wfconfig=enabled \

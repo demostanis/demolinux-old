@@ -1,0 +1,25 @@
+--- plugins/scale/scale.cpp.orig	2022-05-14 18:33:27.997794031 +0200
++++ plugins/scale/scale.cpp	2022-05-14 18:34:03.625211799 +0200
+@@ -642,18 +642,22 @@
+ 
+         switch (key)
+         {
++	  case KEY_K:
+           case KEY_UP:
+             next_row--;
+             break;
+ 
++	  case KEY_J:
+           case KEY_DOWN:
+             next_row++;
+             break;
+ 
++	  case KEY_H:
+           case KEY_LEFT:
+             next_col--;
+             break;
+ 
++	  case KEY_L:
+           case KEY_RIGHT:
+             next_col++;
+             break;
