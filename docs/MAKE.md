@@ -8,7 +8,7 @@ To build packages only:
 
 To only build specific packages:
 
-  `# make build-packages P="neo wayfire lokinet"
+  `# make build-packages P="neo wayfire lokinet"`
 
 To only build the ISO:
 
