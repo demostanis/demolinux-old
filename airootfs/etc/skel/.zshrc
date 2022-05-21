@@ -43,7 +43,9 @@ infot() {
 		sleep 1
 	done&!
 	# stop if return is pressed
-	p=$!; read -st $((t+1)); kill $p
+	p=$!;
+	trap 'kill $p; return 1' INT
+	read -st $((t+1)); kill $p
 }
 
 # calculate time the last command
