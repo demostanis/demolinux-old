@@ -16,6 +16,7 @@ airootfs_image_tool_options=('-d3zlz4hc,12')
 file_permissions=(
   ["/etc/shadow"]="0:0:400"
   ["/usr/bin/torbrowser"]="0:0:755"
+  ["/usr/bin/hardened-firefox"]="0:0:755"
   ["/usr/bin/lofi"]="0:0:755"
   ["/usr/bin/chillhop"]="0:0:755"
   ["/usr/bin/song"]="0:0:755"

@@ -29,6 +29,8 @@ user_pref("network.connectivity-service.enabled", false);
 user_pref("trailhead.firstrun.didSeeAboutWelcome", true);
 
 user_pref("browser.startup.page", 0);
+user_pref("startup.homepage_welcome_url", "about:blank");
+user_pref("datareporting.policy.firstRunURL", "");
 user_pref("browser.startup.homepage", "about:blank");
 user_pref("browser.newtabpage.enabled", false);
 user_pref("browser.newtab.preload", false);
@@ -62,4 +64,6 @@ user_pref("browser.newtabpage.activity-stream.showSponsoredTopSites", false);
 user_pref("browser.newtabpage.pinned", "[]");
 user_pref("browser.search.hiddenOneOffs", "Amazon.fr,Bing");
 user_pref("browser.urlbar.suggest.topsites", false);
+
+user_pref("network.IDN_show_punycode", true);
 

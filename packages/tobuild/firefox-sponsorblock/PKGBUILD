@@ -1,3 +1,6 @@
+# we patch sponsorblock too to prevent it from opening
+# help tab on first startup. it annoys me as fuck.
+
 pkgname=firefox-sponsorblock
 pkgver=4.2.1
 pkgrel=1
@@ -6,11 +9,32 @@ url="https://github.com/ajayyy/SponsorBlock"
 license=('LGPL3')
 arch=('any')
 depends=(firefox)
-source=("$pkgname-$pkgver.xpi::https://github.com/ajayyy/SponsorBlock/releases/download/$pkgver/FirefoxExtension.zip")
-noextract=("$pkgname-$pkgver.xpi")
+source=("https://github.com/ajayyy/SponsorBlock/archive/refs/tags/$pkgver.tar.gz")
+makedepends=('zip' 'npm' 'strip-nondeterminism')
+b2sums=('2b3cf5fbe786f60c598916dcd1c1b965f1962af5093480047c53f08a22f2056d5b10e6d9d37daf13523a1724b8d1706972c92441569e93dc752bc678bb463db4')
+
+prepare() {
+  cd SponsorBlock-$pkgver
+  cp config.json.example config.json
+  npm ci
+}
+
+build() {
+  cd SponsorBlock-$pkgver
+  sed -i '/open up the install page/{N;d}' src/background.ts
+  npm run build:firefox
+  (cd dist; zip -r sponsorblock.xpi .)
+  mv dist/sponsorblock.xpi .
+  /usr/bin/vendor_perl/strip-nondeterminism -t zip sponsorblock.xpi
+}
+
+check() {
+  cd SponsorBlock-$pkgver
+  npm test
+}
 
 package() {
-    install -Dm644 "$pkgname-$pkgver.xpi" \
+    install -Dm644 SponsorBlock-$pkgver/sponsorblock.xpi \
         "${pkgdir}/usr/lib/firefox/browser/extensions/sponsorBlocker@ajay.app.xpi"
 }
-sha256sums=('9b8a79836da0cff9314000008bd95cdbc7cc0bb054e8d87fd622647a8114bc1a')
+# vim:set ts=2 sw=2 et:
