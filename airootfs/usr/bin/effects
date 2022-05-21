@@ -2,7 +2,7 @@
 
 case $1 in
 	init)
-		echo '{"tooltip":"Right click: blur\nLeft click: fire"}'
+		echo '{"tooltip":"Left click: blur\nRight click: fire"}'
 		;;
 	fire)
 		grep 'close_animation = fire' $HOME/.wayfire.conf >/dev/null 2>&1
