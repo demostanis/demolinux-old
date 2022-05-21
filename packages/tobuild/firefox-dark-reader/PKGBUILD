@@ -1,0 +1,42 @@
+# Maintainer: Daniel M. Capella <polyzen@archlinux.org>
+# Contributor: Cookie Engineer <cookiengineer@protonmail.ch>
+
+# we patch dark reader to prevent it from opening
+# help tab on first startup. it annoys me as fuck.
+
+pkgname=firefox-dark-reader
+pkgver=4.9.50
+pkgrel=1
+pkgdesc='Inverts brightness of web pages and aims to reduce eyestrain while browsing the web'
+arch=('any')
+groups=('firefox-addons')
+url=https://darkreader.org/
+license=('MIT')
+makedepends=('npm' 'strip-nondeterminism')
+source=("https://github.com/darkreader/darkreader/archive/v$pkgver/darkreader-$pkgver.tar.gz")
+b2sums=('a224c0fea54a3437ad6bb8ea333f1abb90c239448835819a94bfdc4497cc16d9167fcbdf03a156eb9b3cc3eb800432501a68112bda65db490a28d13fe1107adf')
+
+prepare() {
+  cd darkreader-$pkgver
+  npm ci
+}
+
+build() {
+  cd darkreader-$pkgver
+  sed -i '/chrome.tabs.create/d' src/background/index.ts
+  npm run build
+  /usr/bin/vendor_perl/strip-nondeterminism -t zip build/release/*.xpi
+}
+
+check() {
+  cd darkreader-$pkgver
+  npm test
+}
+
+package_firefox-dark-reader() {
+  cd darkreader-$pkgver/build/release
+  install -Dm644 darkreader-firefox.xpi \
+    "$pkgdir"/usr/lib/firefox/browser/extensions/addon@darkreader.org.xpi
+}
+
+# vim:set ts=2 sw=2 et:
