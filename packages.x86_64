@@ -33,6 +33,7 @@ gpm
 grim
 imagemagick
 jq
+kitty
 kvantum-qt5
 libnotify
 light
@@ -76,6 +77,7 @@ syslinux
 tilix
 tmux
 torbrowser-launcher
+transmission-gtk
 ttf-joypixels
 vim
 vimpager
@@ -83,6 +85,7 @@ waybar
 wayfire
 waylock
 wdisplays
+wf-recorder
 wl-clipboard
 wlogout
 wofi

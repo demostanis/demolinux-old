@@ -42,6 +42,7 @@ bwrap \
 --tmpfs /tmp \
 --bind $HOME/.mozilla /firefox/.mozilla \
 --bind $HOME/downloads /firefox/Downloads \
+--ro-bind $HOME/.config/zathura/zathurarc /firefox/.config/zathura/zathurarc \
 --setenv HOME /firefox \
 --setenv GTK_THEME Adwaita:dark \
 --setenv MOZ_ENABLE_WAYLAND 1 \
@@ -51,5 +52,5 @@ bwrap \
 --share-net \
 --die-with-parent \
 --new-session \
-/usr/bin/firefox
+/usr/bin/firefox $@
 
