@@ -1,6 +1,7 @@
 adobe-source-code-pro-fonts
 alacritty
 android-tools
+archinstall
 arch-install-scripts
 base
 base-devel
@@ -70,6 +71,7 @@ qt5-wayland
 reflector
 ripgrep
 rofimoji
+rsync
 slurp
 swappy
 swaybg

@@ -26,4 +26,5 @@ file_permissions=(
   ["/usr/bin/color-picker"]="0:0:755"
   ["/usr/bin/fetch"]="0:0:755"
   ["/usr/bin/wific"]="0:0:755"
+  ["/usr/bin/installer"]="0:0:755"
 )
