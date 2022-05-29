@@ -1,4 +1,5 @@
 from getpass import getpass
+from glob import glob
 import archinstall
 import os.path
 import os
@@ -69,13 +70,11 @@ with archinstall.Filesystem(disk, method) as fs:
 with archinstall.Installer('/mnt') as installation:
     installation.mount_ordered_layout(layout)
 
+    installation.base_packages = open('/usr/src/demolinux/packages.x86_64').read().splitlines()
     if installation.minimal_installation():
         installation.set_hostname('demolinux')
         installation.add_bootloader('grub-install' if not archinstall.has_uefi() else 'systemd-bootctl')
 
-        print('Installing packages...')
-        installation.add_additional_packages(open('/usr/src/demolinux/packages.x86_64').read().splitlines())
-
         print('Copying files...')
-        archinstall.SysCommand(f'rsync -Eav -- /usr/src/demolinux/airootfs/* "{installation.target}"')
+        archinstall.SysCommand(f'rsync -Eav --exclude mkinitcpio.conf -- {" ".join(glob("/usr/src/demolinux/airootfs/*"))} "{installation.target}"')
 
