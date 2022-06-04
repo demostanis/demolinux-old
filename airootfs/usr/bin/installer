@@ -1,2 +1,5 @@
 #!/bin/sh
+echo "This installer has many bugs and will most likely not work. Unless you want to debug those issues, don't use it."
+echo " (start by editing /usr/bin/installer. The python script is at $HOME/.config/archinstall/profiles/install.py)"
+exit 42
 sudo -E archinstall --script install
