@@ -8,8 +8,8 @@ fi
 if [ `tty` = /dev/tty1 ]; then
 	[ $((`tput cols` >= 120)) ] && cat /etc/motd
 	info Hacking NSA...
-	info Loading dconf settings... && \
 	if [ ! -e ~/.config/dconf ]; then
+		info Loading dconf settings... && \
 		dconf load / < ~/.config/default-dconf
 		rm ~/.config/default-dconf
 	fi
