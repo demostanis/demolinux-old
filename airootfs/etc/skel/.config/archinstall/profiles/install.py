@@ -25,12 +25,12 @@ def choose_disk():
         choice = input('Your choice: ')
         disk = list(disks.values())[int(choice)]
         disk.keep_partitions = False
+        return disk
     except (IndexError, ValueError):
         print('Invalid choice.')
-        choose_disk()
+        return choose_disk()
 
-choose_disk()
-
+disk = choose_disk()
 print(f'Selected {disk}')
 
 method = archinstall.MBR
