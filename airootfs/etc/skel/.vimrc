@@ -6,6 +6,9 @@ source $VIMRUNTIME/defaults.vim
 set ts=2 sw=2
 " highlight search
 set incsearch
+" wrap long lines on words
+set wrap
+set linebreak
 
 " enable syntax highlighting
 filetype plugin indent on
