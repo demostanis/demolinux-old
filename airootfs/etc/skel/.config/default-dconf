@@ -2,3 +2,6 @@
 # in ~/.zlogin if ! -e ~/.config/dconf
 [org/gnome/desktop/interface]
 color-scheme='prefer-dark'
+
+[org/cinnamon/desktop/applications/terminal]
+exec='tilix'

@@ -2,13 +2,14 @@
 	background-image: none;
 }
 window {
-	background-color: rgba(46, 52, 64, 0.9);
+	background-color: rgba(58, 55, 56, 0.3);
 }
 button {
 	padding-bottom: 20px;
 	font: bold 24px 'Cantarell';
+	text-shadow: none;
 	background-origin: content-box;
-	background-color: #2e3440;
+	background-color: rgba(58, 55, 56, 0.3);
 	border-style: solid;
 	border-width: 0px;
 	border-radius: 0;
@@ -18,8 +19,8 @@ button {
 	color: #ffffff;
 }
 
-button:focus, button:active, button:hover {
-	background-color: #4c566a;
+button:hover {
+	background-color: rgba(39, 39, 39, 0.3);
 	outline-style: none;
 }
 

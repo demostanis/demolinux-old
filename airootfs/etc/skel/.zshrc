@@ -52,6 +52,7 @@ infot() {
 # executed took to finish.
 preexec() {
 	# set terminal title to current command
+	1=`sed s/%/%%/g <<< "$1"`
 	printf "\033]0;$1\a"
 
 	initial_seconds=$SECONDS
