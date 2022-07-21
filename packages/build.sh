@@ -18,4 +18,3 @@ if [ ! -d container/etc ]; then
 fi
 systemd-nspawn -D container \
 	--bind="$(pwd)"/tobuild:/root /root/script.sh $@
-rm -r go
