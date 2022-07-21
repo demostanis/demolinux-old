@@ -1,9 +1,12 @@
 #!/bin/sh
 
-ssid=$(nmcli device wifi list | tail -n+2 | sed 's/ \+/ /g;s/^*//' | cut -d\  -f3,6,9- | awk '{for(i=0;i<3;i++)sub(" ","\n")}1' | tail -n+1 | sed '2~4s/$/ MBit\/s/' | yad --width 500 --height 200 --title "Choose network" --list --column SSID --column Rate --column Signal --column Security | cut -d\| -f1)
+network=$(nmcli device wifi list | tail -n+2 | sed 's/ \+/ /g;s/^*//' | cut -d\  -f2,3,6,9- | awk '{for(i=0;i<4;i++)sub(" ","\n")}1' | tail -n+1 | sed '3~5s/$/ MBit\/s/' | yad --width 500 --height 200 --title "Choose network" --list --column BSSID --column SSID --column Rate --column Signal --column Security)
+bssid=(echo "$network" | cut -d\| -f1)
+ssid=(echo "$network" | cut -d\| -f2)
+
 if [ -n "$ssid" ]; then
-	passphrase=$(yad --text "Passphrase for $ssid" --entry --hide-text)
-	out=$(nmcli device wifi connect "$ssid" password "$passphrase")
+	passphrase=$(yad --text "Passphrase for $ssid ($bssid)" --entry --hide-text)
+	out=$(nmcli device wifi connect "$bssid" password "$passphrase")
 	echo "$out" | grep successfully
 	if (( $? == 0 )); then
 		notify-send "$ssid" 'Successfully connected'
