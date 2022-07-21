@@ -27,4 +27,7 @@ file_permissions=(
   ["/usr/bin/fetch"]="0:0:755"
   ["/usr/bin/wific"]="0:0:755"
   ["/usr/bin/installer"]="0:0:755"
+  ["/usr/bin/u"]="0:0:755"
+  ["/usr/bin/t"]="0:0:755"
+  ["/usr/bin/lyrics"]="0:0:755"
 )

@@ -16,6 +16,7 @@ b2sums=('2b3cf5fbe786f60c598916dcd1c1b965f1962af5093480047c53f08a22f2056d5b10e6d
 prepare() {
   cd SponsorBlock-$pkgver
   cp config.json.example config.json
+  npm i
   npm ci
 }
 
