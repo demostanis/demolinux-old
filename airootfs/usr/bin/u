@@ -1,0 +1,4 @@
+#!/bin/sh
+
+term=$(echo ${@:-'ur stupid'} | sed 's/ /+/g')
+curl -G "https://www.urbandictionary.com/define.php" --data "term=$term" -Ls | xmllint --html --xpath 'string(//meta[@property="og:description"]/@content)' - 2>/dev/null

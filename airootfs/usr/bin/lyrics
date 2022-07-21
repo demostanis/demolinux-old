@@ -1,0 +1,5 @@
+#!/bin/sh
+
+[ x = x"$*" ] && (echo "Please specify a query."; kill $$)
+http "$(http "https://genius.com/api/search/multi?q=$*" | jq -r '.response.sections[0].hits[0].result.url')" | xmllint --html --xpath '//title/text() | //div[starts-with(@class, "Lyrics__Container")]//text()' - 2>/dev/null | sed '1s/\(.*\) – \(.*\) Lyrics |.*/\2\n\1/;s/&amp;/\&/g' | fold -w $(tput cols) | awk 'NR==2 { print "by" } NR==3 { print "" } 1' | awk -v columns=$(tput cols) '{ for(c = 0; c < (columns - length($0)) / 2; c++) printf " " } { print $0 }' | sed -r 's/(\[.+\])/\x1b[1m\1\x1b[0m/g' 
+
