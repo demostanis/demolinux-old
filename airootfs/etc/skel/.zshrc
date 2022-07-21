@@ -17,6 +17,10 @@ unalias run-help
 alias -g DN=/dev/null
 alias help=run-help
 
+aur() {
+	git clone https://aur.archlinux.org/$1 ${@:2}
+}
+
 info() {
 	echo -e "\x1b[1m[*] \x1b[32m$@\x1b[0m"
 }
