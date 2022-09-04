@@ -1,14 +1,14 @@
 # Maintainer: jason <jason@oxen.io>
 pkgname=lokinet
 pkgver=0.9.9
-pkgrel=1
+pkgrel=2
 pkgdesc="Anonymous, decentralized and IP based overlay network for the internet."
 arch=('x86_64' 'aarch64')
 url="https://lokinet.org"
 license=('GPL3')
-depends=('libuv' 'libsodium' 'curl' 'unbound' 'sqlite' 'jemalloc' 'libsystemd' 'zeromq')
+depends=('libuv' 'libsodium' 'unbound' 'jemalloc' 'systemd-libs' 'zeromq' 'nlohmann-json' 'spdlog' 'fmt')
 makedepends=('git' 'cmake' 'pkgconf')
-conflicts=('lokinet' 'lokinet-bin')
+conflicts=('lokinet-bin')
 source=("$pkgname::git+https://github.com/oxen-io/lokinet#branch=makepkg")
 b2sums=('SKIP')
 
@@ -18,34 +18,32 @@ prepare() {
 }
 
 build() {
-    cd "$srcdir/$pkgname"
-
-    rm -rf build && mkdir build && cd build
-    cmake \
+    cmake -G "Unix Makefiles" \
         -DCMAKE_BUILD_TYPE=Release \
         -DCMAKE_INSTALL_PREFIX=/usr \
         -DCMAKE_C_FLAGS="$CFLAGS" \
         -DCMAKE_CXX_FLAGS="$CXXFLAGS" \
         -DFORCE_OXENMQ_SUBMODULE=ON \
+        -DFORCE_OXENC_SUBMODULE=ON \
+        -DNATIVE_BUILD=OFF \
         -DWITH_TESTS=OFF \
         -DWITH_SYSTEMD=ON \
         -DWITH_SETCAP=OFF \
-	-DNATIVE_BUILD=OFF \
+        -DWITH_BOOTSTRAP=OFF \
+        -DWITH_PEERSTATS_BACKEND=OFF \
         -DBUILD_LIBLOKINET=OFF \
-        ..
-    make
+        -S "$srcdir/$pkgname" -B build
+    make -C build
 }
 
 package() {
-    cd "$srcdir/$pkgname"
-    install -D -m 644 LICENSE "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
-    cd build
-    make DESTDIR="$pkgdir" install
-    setcap cap_net_admin,cap_net_bind_service=+eip "$pkgdir/usr/bin/lokinet"
 
+    install -D -m 644 "$srcdir/$pkgname/LICENSE" "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
+    make DESTDIR="$pkgdir" install -C build
+
+    install -D -m 644 "$srcdir/$pkgname/contrib/bootstrap/mainnet.signed"                 "$pkgdir/var/lib/lokinet/bootstrap.signed"
     install -D -m 644 "$srcdir/$pkgname/contrib/archlinux/lokinet.service"                "$pkgdir/usr/lib/systemd/system/lokinet.service"
     install -D -m 644 "$srcdir/$pkgname/contrib/archlinux/lokinet-vpn@.service"           "$pkgdir/usr/lib/systemd/system/lokinet-vpn@.service"
-    install -D -m 644 "$srcdir/$pkgname/contrib/archlinux/lokinet-bootstrap.service"      "$pkgdir/usr/lib/systemd/system/lokinet-bootstrap.service"
     install -D -m 644 "$srcdir/$pkgname/contrib/archlinux/lokinet-default-config.service" "$pkgdir/usr/lib/systemd/system/lokinet-default-config.service"
     install -D -m 644 "$srcdir/$pkgname/contrib/archlinux/lokinet-resume.service"         "$pkgdir/usr/lib/systemd/system/lokinet-resume.service"
     install -D -m 644 "$srcdir/$pkgname/contrib/archlinux/lokinet.sysusers"               "$pkgdir/usr/lib/sysusers.d/lokinet.conf"
