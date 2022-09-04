@@ -11,7 +11,6 @@ btop
 bubblewrap
 chafa
 chntpw
-clapper
 dnsmasq
 dunst
 edk2-shell
@@ -99,7 +98,7 @@ wofi
 wtype
 xorg-xwayland
 yad
-youtube-dl
+yt-dlp
 zathura
 zathura-pdf-mupdf
 zfs-dkms
