@@ -79,7 +79,7 @@ precmd() {
 }
 
 # show exit code
-RPROMPT='%B%F{red}%1(?.%?.)'
+RPROMPT='%B%F{red}%(?..%?)'
 # beautiful prompt
 PROMPT='%B%(!.%F{red}.%F{green})%n%b%F{white} on %B%m%b'$'\n''%# %b'
 
