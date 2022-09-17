@@ -26,6 +26,7 @@ alias gc='git commit'
 alias kakrc='kak ~/.config/kak/kakrc'
 # specific to myself
 alias sr='cd /data/programming/SerenityOS'
+alias dm='cd /data/programming/demolinux'
 
 aur() {
 	git clone https://aur.archlinux.org/$1 ${@:2}

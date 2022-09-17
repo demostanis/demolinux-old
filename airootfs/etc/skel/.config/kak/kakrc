@@ -33,44 +33,17 @@ plug "kak-lsp/kak-lsp" do %{ cargo install --locked --force --path . } config %{
 		lsp-enable-window
 	}
 }
-plug "gustavo-hms/luar" %{
-	plug "gustavo-hms/peneira" %{
-		require-module peneira
-
-		define-command peneira-grep %{
-			prompt "find: " %{
-				peneira "line: " "rg -n %val{text}" %{
-				  lua %arg{1} %{
-			  		local file, line = arg[1]:match("([^:]+):(%d+):")
-						kak.edit(file, line)
-				  }
-				}
-			}
-		}
-
-		declare-user-mode pick
-		map global normal <a-g> ":enter-user-mode pick<ret>"
-		map global pick f ":peneira-files<ret>" -docstring "find file…"
-		map global pick g ":peneira-grep<ret>" -docstring "find in file…"
-		map global pick t ":kaktree-toggle<ret>" -docstring "tree…"
-	}
-}
-plug "andreyorst/kaktree" config %{
-	hook global WinSetOption filetype=kaktree %{
-		set window modelinefmt ''
-	}
-	kaktree-enable
-	set global kaktree_show_help false
-	hook global -once WinCreate \*kaktree\* %{
-		tmux-focus client0
-	}
-	kaktree-toggle
-}
 plug "alexherbo2/alacritty.kak"
 
 # initialize kampliment, for remote control
 evaluate-commands %sh{ kamp init -a }
+map global user g ":connect terminal-popup kamp-grep<ret>" -docstring "grep files…"
+map global user f ":connect terminal-popup kamp-files<ret>" -docstring "find files…"
 
 # sorry clippy
 set global ui_options terminal_assistant=none
 set global tabstop 2
+
+# format C/C++ files
+hook global WinSetOption filetype=(c|cpp) %{ set window formatcmd clang-format }
+hook global BufWritePre .*\.(c|cpp)$ %{ format }
