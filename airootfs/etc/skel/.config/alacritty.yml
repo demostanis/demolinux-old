@@ -1,0 +1,5 @@
+window:
+  decorations: none
+  dimensions:
+    columns: 160
+    lines: 40

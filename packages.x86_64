@@ -3,16 +3,20 @@ alacritty
 android-tools
 archinstall
 arch-install-scripts
+archiso
 base
 base-devel
+bat
 bemenu-wayland
 bind
 btop
 bubblewrap
 chafa
 chntpw
+clang
 dnsmasq
 dunst
+editorconfig-core-c
 edk2-shell
 emoji-font
 expac
@@ -26,6 +30,7 @@ firefox-ublock-origin
 firefox-userchromejs
 firefox-vimfx
 firefox-ytarb
+fzf
 gcolor3
 gimmeasearx
 git
@@ -37,6 +42,7 @@ imagemagick
 imv
 jq
 kakoune
+kampliment
 kitty
 kvantum-qt5
 libnotify
@@ -45,6 +51,7 @@ linux
 linux-firmware
 linux-headers
 lokinet
+lua
 lxqt-policykit
 lynx
 man
@@ -77,6 +84,7 @@ ripgrep
 rofimoji
 rsync
 ruby
+rust
 slurp
 swappy
 swaybg
@@ -85,7 +93,9 @@ tilix
 tmux
 torbrowser-launcher
 transmission-gtk
+ttf-fira-code
 ttf-joypixels
+up
 vim
 vimpager
 waybar

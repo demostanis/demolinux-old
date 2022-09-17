@@ -1,0 +1,28 @@
+pkgname=kampliment
+pkgver=0.1.0
+pkgrel=1
+pkgdesc='tool to control Kakoune editor from the command line'
+arch=(x86_64)
+url=https://github.com/demostanis/kampliment
+depends=(kakoune)
+makedepends=(git rust)
+source=($pkgname::git+$url#branch=fix-ctrl-c)
+md5sums=(SKIP)
+
+prepare() {
+	cd "$srcdir/$pkgname"
+	cargo fetch --locked --target "$CARCH-unknown-linux-gnu"
+}
+
+build() {
+	cd "$srcdir/$pkgname"
+	export RUSTUP_TOOLCHAIN=stable
+	export CARGO_TARGET_DIR=target
+	cargo build --frozen --release
+}
+
+package() {
+	cd "$srcdir/$pkgname"
+	install -Dm755 -t "$pkgdir"/usr/bin target/release/kamp
+	install -m755 -t "$pkgdir"/usr/bin scripts/*
+}

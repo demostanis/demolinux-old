@@ -4,6 +4,7 @@ if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
 fi
 
 # some key bindings
+set -o vi
 bindkey ^R history-incremental-pattern-search-backward
 bindkey '^[[Z' reverse-menu-complete
 
@@ -16,6 +17,15 @@ unalias run-help
 # e.g. cmd >DN to redirect to /dev/null
 alias -g DN=/dev/null
 alias help=run-help
+alias kg=kamp-grep
+alias kf=kamp-files
+alias gd='git diff'
+alias gds='git diff --staged'
+alias gap='git add --patch'
+alias gc='git commit'
+alias kakrc='kak ~/.config/kak/kakrc'
+# specific to myself
+alias sr='cd /data/programming/SerenityOS'
 
 aur() {
 	git clone https://aur.archlinux.org/$1 ${@:2}
@@ -88,7 +98,4 @@ autoload -Uz compinit && compinit
 
 source \
 /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-# for pip modules
-PATH="$PATH:$HOME/.local/bin"
 

@@ -30,4 +30,5 @@ file_permissions=(
   ["/usr/bin/u"]="0:0:755"
   ["/usr/bin/t"]="0:0:755"
   ["/usr/bin/lyrics"]="0:0:755"
+  ["/usr/bin/rsg"]="0:0:755"
 )
