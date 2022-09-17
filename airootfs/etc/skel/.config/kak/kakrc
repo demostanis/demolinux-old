@@ -29,8 +29,9 @@ plug "kak-lsp/kak-lsp" do %{ cargo install --locked --force --path . } config %{
 		roots = ["compile_commands.json", ".git/"]
 		command = "clangd"
 	}
-	hook global WinSetOption filetype=(clojure) %{
+	hook global WinSetOption filetype=(clojure|c|cpp) %{
 		lsp-enable-window
+		lsp-auto-hover-enable
 	}
 }
 plug "alexherbo2/alacritty.kak"
