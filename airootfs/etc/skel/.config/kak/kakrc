@@ -5,9 +5,9 @@ plug "base16-project/base16-kakoune" theme config %{
 	colorscheme base16-heetch
 }
 plug "alexherbo2/surround.kak" %{
-  # restore original functionality by pressing m twice
-  map global surround m m
-	map global normal <c-]> ":enter-user-mode surround<ret>"
+	# restore original functionality by pressing m twice
+	map global surround m m
+	map global normal m ":enter-user-mode surround<ret>"
 }
 plug "alexherbo2/auto-pairs.kak" %{ enable-auto-pairs }
 plug "andreyorst/smarttab.kak" %{
