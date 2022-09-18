@@ -22,7 +22,9 @@ alias kf=kamp-files
 alias gd='git diff'
 alias gds='git diff --staged'
 alias gap='git add --patch'
+alias gs='git status'
 alias gc='git commit'
+alias grc='git rebase --continue'
 alias kakrc='kak ~/.config/kak/kakrc'
 # specific to myself
 alias sr='cd /data/programming/SerenityOS'
