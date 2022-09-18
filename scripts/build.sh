@@ -1,7 +1,7 @@
 #!/bin/sh
 sed -i 's#<packages>#'"$(pwd)"/packages'#' pacman.conf
 # unmount all stuff inside work/
-IFS=$'\n'; for m in "$(findmnt -ao TARGET | cut -d- -f2- | grep $PWD)"; do
+IFS=$'\n'; for m in $(findmnt -ao TARGET | cut -d- -f2- | grep $PWD); do
 umount -l "$m" 2>/dev/null
 done
 rm -rf work && \
