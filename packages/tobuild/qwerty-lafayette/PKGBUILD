@@ -1,0 +1,34 @@
+# Creator: Frank LENORMAND <lenormf@gmail.com>
+# Contributor: demostanis worlds <icantaccessmyemailaddressanymore>
+pkgname=qwerty-lafayette
+pkgver=0.6.1
+pkgrel=3
+pkgdesc="QWERTY keyboard layout for francophone developers"
+arch=("any")
+url="https://qwerty-lafayette.org/"
+license=('WTFPL')
+depends=("xorg-server")
+makedepends=("python" "python-lxml")
+source=(
+    "https://qwerty-lafayette.org/releases/lafayette_linux_v${pkgver}.py"
+    "0001-only-generate-xorg-symbols.patch"
+)
+sha256sums=('19d3e1a1676fb6b2a28cfdb1b4242460f48a18eba6444a31607d7e867fd1139b'
+            'eec99e7ee9621a3d9934c8c4753741c23e187888bd60c16d6a7f08475d725248')
+
+prepare() {
+    patch --follow-symlinks -p1 < 0001-only-generate-xorg-symbols.patch
+}
+
+build() {
+    mkdir -p build && cd build
+
+		python ../lafayette_linux_v"${pkgver}".py
+}
+
+package() {
+    cd build
+
+    install -d "${pkgdir}"/usr/share/X11/xkb/symbols/
+    install -m644 * "${pkgdir}"/usr/share/X11/xkb/symbols/
+}

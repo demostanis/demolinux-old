@@ -1,5 +1,4 @@
 # Maintainer: Leonardo Eugênio <lelgenio@disroot.org>
-# Contributor: demostanis worlds <goddamniticantaccessmyemailanymorethatsucks>
 pkgname=emmet-cli
 pkgver=1.2.1
 pkgrel=1
@@ -20,5 +19,4 @@ package() {
     cd "$_npmdir"
     npm install -g --prefix "$pkgdir/usr" "$pkgname@$pkgver"
     chown -R root:root "$pkgdir"
-    ln -s "$pkgdir"/usr/lib/node_modules/emmet-cli/index.js "$pkgdir"/usr/bin/emmet
 }
