@@ -38,6 +38,12 @@ plug "kak-lsp/kak-lsp" do %{ cargo install --locked --force --path . } config %{
 	map global normal <c-l> ":enter-user-mode lsp<ret>"
 }
 plug "alexherbo2/alacritty.kak"
+plug "occivink/kakoune-snippets"
+plug "JJK96/kakoune-emmet" config %{
+	hook global WinSetOption filetype=html %{
+		emmet-enable-autocomplete
+	}
+}
 
 # initialize kampliment, for remote control
 evaluate-commands %sh{ kamp init -a }
