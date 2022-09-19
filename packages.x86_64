@@ -18,6 +18,7 @@ dnsmasq
 dunst
 editorconfig-core-c
 edk2-shell
+emmet-cli
 emoji-font
 expac
 fd
@@ -56,6 +57,7 @@ lxqt-policykit
 lynx
 man
 man-db
+mate-polkit
 memtest86+
 mesa-utils
 mkinitcpio
