@@ -43,6 +43,7 @@ plug "alexherbo2/alacritty.kak"
 evaluate-commands %sh{ kamp init -a }
 map global user g ":connect terminal-popup kamp-grep<ret>" -docstring "grep files…"
 map global user f ":connect terminal-popup kamp-files<ret>" -docstring "find files…"
+map global user b ":connect terminal-popup kamp-buffers<ret>" -docstring "search buffer…"
 
 # sorry clippy
 set global ui_options terminal_assistant=none
