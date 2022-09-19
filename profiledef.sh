@@ -32,3 +32,8 @@ file_permissions=(
   ["/usr/bin/lyrics"]="0:0:755"
   ["/usr/bin/rsg"]="0:0:755"
 )
+for file in $(find airootfs/etc/skel/.tmux/plugins/tpm -type f); do
+  file_permissions+=(
+  	["${file##airootfs}"]="0:0:755"
+  )
+done
