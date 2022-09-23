@@ -14,6 +14,6 @@ if [ -n "$ssid" ]; then
 		notify-send "$ssid" 'Failed to connect: '$out
 	fi
 else
-	echo No network choosen
+	echo No network chosen
 	exit 1
 fi
