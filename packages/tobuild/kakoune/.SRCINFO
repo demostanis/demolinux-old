@@ -1,0 +1,26 @@
+pkgbase = kakoune-git
+	pkgdesc = Multiple-selection, UNIX-flavored modal editor
+	pkgver = 2021.11.08
+	pkgrel = 1
+	url = https://github.com/mawww/kakoune
+	arch = x86_64
+	arch = armv7h
+	license = custom:unlicense
+	makedepends = git
+	depends = gcc-libs
+	optdepends = aspell: spell check, correct text
+	optdepends = clang: error reporting and diagnostics, completion
+	optdepends = ctags-git: complete and describe a symbol, jump to its definition
+	optdepends = editorconfig-core-c: set formatting options project-wide
+	optdepends = git: display and cycle through hunks, blame lines, handle file status
+	optdepends = kak-lsp: Language Server Protocol (LSP) client
+	optdepends = tmux: split windows, spawn tabs
+	optdepends = xdotool: X11 window management
+	optdepends = xorg-xmessage: print detailed crash information in a separate window
+	provides = kakoune=2021.11.08
+	conflicts = kakoune
+	options = !buildflags
+	source = kakoune-git::git+https://github.com/mawww/kakoune.git
+	sha256sums = SKIP
+
+pkgname = kakoune-git
