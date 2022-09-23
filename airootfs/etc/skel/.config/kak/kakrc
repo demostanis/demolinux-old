@@ -20,18 +20,7 @@ plug "andreyorst/smarttab.kak" %{
 }
 plug "leperdu/kakboard" %{ hook global WinCreate .* %{ kakboard-enable } }
 plug "kak-lsp/kak-lsp" do %{ cargo install --locked --force --path . } config %{
-	set buffer lsp_config %{
-		[language.clojure]
-		filetypes = ["clojure"]
-		roots = ["project.clj", "deps.edn", ".git/"]
-		command = "clojure-lsp"
-
-		[language.c_cpp]
-		filetypes = ["c", "cpp"]
-		roots = ["compile_commands.json", ".git/"]
-		command = "clangd"
-	}
-	hook global WinSetOption filetype=(clojure|c|cpp) %{
+	hook global WinSetOption filetype=(clojure|c|cpp|python|go) %{
 		lsp-enable-window
 		lsp-auto-hover-enable
 	}
@@ -55,11 +44,20 @@ map global user b ":connect terminal-popup kamp-buffers<ret>" -docstring "search
 set global ui_options terminal_assistant=none
 set global tabstop 2
 
-# format C/C++ files
+# auto format files
 hook global WinSetOption filetype=(c|cpp) %{ set window formatcmd clang-format }
-hook global BufWritePre .*\.(c|cpp)$ %{ format }
+hook global WinSetOption filetype=python %{ set window formatcmd yapf }
+hook global BufWritePre .*\.(c|cpp|py)$ %{ format }
+
+# auto format packages.x86_64 in demolinux source
+hook global WinCreate .*packages\.x86_64 %{ set window formatcmd sort }
+hook global BufWritePre .*packages\.x86_64 %{ format }
 
 # YOU WILL NOT FUCK MY EYES
 face global MenuBackground Default
 face global MenuInfo Default
 face global Information Default
+
+# use tab and shift-tab to navigate the completion menu
+hook global InsertCompletionShow .* %{ map window insert <tab> <c-n>; map window insert <s-tab> <c-p> }
+hook global InsertCompletionHide .* %{ unmap window insert <tab> <c-n>; unmap window insert <s-tab> <c-p> }
