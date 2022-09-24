@@ -16,7 +16,7 @@ source=(
 )
 sha256sums=('19d3e1a1676fb6b2a28cfdb1b4242460f48a18eba6444a31607d7e867fd1139b'
             'eec99e7ee9621a3d9934c8c4753741c23e187888bd60c16d6a7f08475d725248'
-            '46035eba0b102bbd1c49da1202b7888b944b623dda3e3678b2093550c610d207')
+            'a4349039511dd0f6981c4e931dc4ca4704d59bba232472a0e8b7140909d06cd0')
 
 prepare() {
     patch --follow-symlinks -p1 < 0001-only-generate-xorg-symbols.patch
