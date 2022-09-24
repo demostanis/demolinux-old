@@ -55,7 +55,6 @@ linux-firmware
 linux-headers
 lokinet
 lua
-lxqt-policykit
 lynx
 man
 man-db
@@ -118,7 +117,6 @@ wtype
 xorg-xwayland
 yad
 yapf
-youtube-dl
 yt-dlp
 zathura
 zathura-pdf-mupdf
