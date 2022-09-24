@@ -47,7 +47,8 @@ set global tabstop 2
 # auto format files
 hook global WinSetOption filetype=(c|cpp) %{ set window formatcmd clang-format }
 hook global WinSetOption filetype=python %{ set window formatcmd yapf }
-hook global BufWritePre .*\.(c|cpp|py)$ %{ format }
+hook global WinSetOption filetype=go %{ set window formatcmd gofmt }
+hook global BufWritePre .*\.(c|cpp|py|go)$ %{ format }
 
 # auto format packages.x86_64 in demolinux source
 hook global WinCreate .*packages\.x86_64 %{ set window formatcmd sort }
