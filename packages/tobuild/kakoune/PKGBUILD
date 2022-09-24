@@ -1,5 +1,5 @@
 pkgname=kakoune
-pkgver=2021.11.08_r417_gbe5547ff
+pkgver=2021.11.08_r420_g24d60723
 pkgrel=1
 pkgdesc="Multiple-selection, UNIX-flavored modal editor"
 arch=("x86_64" "armv7h")
@@ -44,6 +44,5 @@ build() {
 package() {
     cd "${srcdir}/${pkgname}/src"
     make install-strip DESTDIR="${pkgdir}" PREFIX=/usr libexecdir="${pkgdir}"/usr/lib/kak
-    tic -o"$pkgdir"/usr/share/terminfo ../contrib/tmux-256color.terminfo
     install -D ../UNLICENSE "${pkgdir}"/usr/share/licenses/${pkgname}/LICENSE
 }
