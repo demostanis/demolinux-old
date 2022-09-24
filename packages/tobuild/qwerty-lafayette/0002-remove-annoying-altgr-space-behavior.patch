@@ -16,7 +16,7 @@ index 5fcb3a7..36c2b5c 100644
  
              // Space bar
 -            key <SPCE> {[ space           , nobreakspace    , U2019           , U2019           , nobreakspace    , U202F           , VoidSymbol      , VoidSymbol      ]}; //     ’ ’
-+            key <SPCE> {[ space           , nobreakspace    , U2019           , U2019           , nobreakspace    , U2019           , VoidSymbol      , VoidSymbol      ]}; //     ’ ’
++            key <SPCE> {[ space           , nobreakspace    , U2019           , U2019           , U2019           , U2019           , VoidSymbol      , VoidSymbol      ]}; //     ’ ’
  
              // The “OneDeadKey” is an ISO_Level3_Latch, i.e. a “dead AltGr” key:
              // this is the only way to have a multi-purpose dead key with XKB.
@@ -25,7 +25,7 @@ index 5fcb3a7..36c2b5c 100644
  
              // Space bar
 -            key <SPCE> {[ space           , nobreakspace    , U2019           , U2019           , nobreakspace    , U202F           , VoidSymbol      , VoidSymbol      ]}; //     ’ ’
-+            key <SPCE> {[ space           , nobreakspace    , U2019           , U2019           , nobreakspace    , U2019           , VoidSymbol      , VoidSymbol      ]}; //     ’ ’
++            key <SPCE> {[ space           , nobreakspace    , U2019           , U2019           , U2019           , U2019           , VoidSymbol      , VoidSymbol      ]}; //     ’ ’
  
              // The “OneDeadKey” is an ISO_Level3_Latch, i.e. a “dead AltGr” key:
              // this is the only way to have a multi-purpose dead key with XKB.
