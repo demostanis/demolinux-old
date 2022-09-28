@@ -16,8 +16,6 @@ Initialize the keyring:
 ```
 pacman-key --init --config pacman.conf
 pacman-key --populate archlinux --config pacman.conf
-pacman-key --recv-keys <archzfs key>
-pacman-key --lsign-key <archzfs key>
 ```
 
 Then build.
