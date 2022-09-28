@@ -1,4 +1,5 @@
 #!/bin/sh
+git submodule update --init
 sed -i 's#<packages>#'"$(pwd)"/packages'#' pacman.conf
 # unmount all stuff inside work/
 IFS=$'\n'; for m in $(findmnt -ao TARGET | cut -d- -f2- | grep "$PWD"); do

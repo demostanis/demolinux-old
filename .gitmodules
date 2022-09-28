@@ -1,0 +1,30 @@
+[submodule "airootfs/etc/skel/.config/kak/plugins/kakoune-sudo-write"]
+	path = airootfs/etc/skel/.config/kak/plugins/kakoune-sudo-write
+	url = https://github.com/occivink/kakoune-sudo-write
+[submodule "airootfs/etc/skel/.config/kak/plugins/surround.kak"]
+	path = airootfs/etc/skel/.config/kak/plugins/surround.kak
+	url = https://github.com/alexherbo2/surround.kak
+[submodule "airootfs/etc/skel/.config/kak/plugins/auto-pairs.kak"]
+	path = airootfs/etc/skel/.config/kak/plugins/auto-pairs.kak
+	url = https://github.com/alexherbo2/auto-pairs.kak
+[submodule "airootfs/etc/skel/.config/kak/plugins/smarttab.kak"]
+	path = airootfs/etc/skel/.config/kak/plugins/smarttab.kak
+	url = https://github.com/andreyorst/smarttab.kak
+[submodule "airootfs/etc/skel/.config/kak/plugins/kakboard"]
+	path = airootfs/etc/skel/.config/kak/plugins/kakboard
+	url = https://github.com/leperdu/kakboard
+[submodule "airootfs/etc/skel/.config/kak/plugins/kak-lsp"]
+	path = airootfs/etc/skel/.config/kak/plugins/kak-lsp
+	url = https://github.com/kak-lsp/kak-lsp
+[submodule "airootfs/etc/skel/.config/kak/plugins/alacritty.kak"]
+	path = airootfs/etc/skel/.config/kak/plugins/alacritty.kak
+	url = https://github.com/alexherbo2/alacritty.kak
+[submodule "airootfs/etc/skel/.config/kak/plugins/kakoune-snippets"]
+	path = airootfs/etc/skel/.config/kak/plugins/kakoune-snippets
+	url = https://github.com/occivink/kakoune-snippets
+[submodule "airootfs/etc/skel/.config/kak/plugins/kakoune-emmet"]
+	path = airootfs/etc/skel/.config/kak/plugins/kakoune-emmet
+	url = https://github.com/JJK96/kakoune-emmet
+[submodule "airootfs/etc/skel/.config/kak/plugins/base16-kakoune"]
+	path = airootfs/etc/skel/.config/kak/plugins/base16-kakoune
+	url = https://github.com/base16-project/base16-kakoune

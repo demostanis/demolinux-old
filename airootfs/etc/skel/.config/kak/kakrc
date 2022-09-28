@@ -1,9 +1,6 @@
 source "%val{config}/plugins/plug.kak/rc/plug.kak"
 plug "andreyorst/plug.kak" noload
 plug "occivink/kakoune-sudo-write" %{ alias global sw sudo-write }
-plug "base16-project/base16-kakoune" theme config %{
-	colorscheme base16-heetch
-}
 plug "alexherbo2/surround.kak" %{
 	# restore original functionality by pressing m twice
 	map global surround m m
@@ -19,7 +16,7 @@ plug "andreyorst/smarttab.kak" %{
 	}
 }
 plug "leperdu/kakboard" %{ hook global WinCreate .* %{ kakboard-enable } }
-plug "kak-lsp/kak-lsp" do %{ cargo install --locked --force --path . } config %{
+plug "kak-lsp/kak-lsp" config %{
 	hook global WinSetOption filetype=(clojure|c|cpp|python|go) %{
 		lsp-enable-window
 		lsp-auto-hover-enable
@@ -33,6 +30,8 @@ plug "JJK96/kakoune-emmet" config %{
 		emmet-enable-autocomplete
 	}
 }
+
+colorscheme base16-heetch
 
 # initialize kampliment, for remote control
 evaluate-commands %sh{ kamp init -a }
