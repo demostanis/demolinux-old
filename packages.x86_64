@@ -14,7 +14,6 @@ bubblewrap
 chafa
 chntpw
 clang
-dnsmasq
 dunst
 editorconfig-core-c
 edk2-shell
@@ -69,8 +68,6 @@ nemo-fileroller
 neo
 neofetch
 neovim
-networkmanager
-network-manager-applet
 nomacs
 noto-fonts
 ntfs-3g
@@ -87,6 +84,7 @@ python-whatthepatch
 qt5-wayland
 qwerty-lafayette
 reflector
+resolvconf
 ripgrep
 rofimoji
 rsync
