@@ -28,3 +28,21 @@
 [submodule "airootfs/etc/skel/.config/kak/plugins/base16-kakoune"]
 	path = airootfs/etc/skel/.config/kak/plugins/base16-kakoune
 	url = https://github.com/base16-project/base16-kakoune
+[submodule "airootfs/etc/skel/.tmux/plugins/base16-tmux"]
+	path = airootfs/etc/skel/.tmux/plugins/base16-tmux
+	url = https://github.com/base16-project/base16-tmux
+[submodule "airootfs/etc/skel/.tmux/plugins/extrakto"]
+	path = airootfs/etc/skel/.tmux/plugins/extrakto
+	url = https://github.com/laktak/extrakto
+[submodule "airootfs/etc/skel/.tmux/plugins/tmux-mighty-scroll"]
+	path = airootfs/etc/skel/.tmux/plugins/tmux-mighty-scroll
+	url = https://github.com/noscript/tmux-mighty-scroll
+[submodule "airootfs/etc/skel/.tmux/plugins/tmux-resurrect"]
+	path = airootfs/etc/skel/.tmux/plugins/tmux-resurrect
+	url = https://github.com/tmux-plugins/tmux-resurrect
+[submodule "airootfs/etc/skel/.tmux/plugins/tmux-continuum"]
+	path = airootfs/etc/skel/.tmux/plugins/tmux-continuum
+	url = https://github.com/tmux-plugins/tmux-continuum
+[submodule "airootfs/etc/skel/.tmux/plugins/tpm"]
+	path = airootfs/etc/skel/.tmux/plugins/tpm
+	url = https://github.com/tmux-plugins/tpm
