@@ -112,6 +112,7 @@ wl-clipboard
 wlogout
 wofi
 wtype
+xdg-user-dirs
 xorg-xwayland
 yad
 yapf
