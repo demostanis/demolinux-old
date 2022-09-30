@@ -21,6 +21,7 @@ alias gs='git status'
 alias gc='git commit'
 alias gpl='git pull'
 alias gps='git push'
+alias gl='git log'
 alias grc='git rebase --continue'
 # easily jump to common configuration files
 alias kakrc='kak ~/.config/kak/kakrc'
