@@ -8,11 +8,6 @@ fi
 if [ `tty` = /dev/tty1 ]; then
 	[ $((`tput cols` >= 120)) ] && cat /etc/motd
 	info Hacking NSA...
-	if [ ! -e ~/.config/dconf ]; then
-		info Loading dconf settings... && \
-		dconf load / < ~/.config/default-dconf
-		rm ~/.config/default-dconf
-	fi
 
 	wf() { wayfire >.wayfire.log 2>&1 }
 
