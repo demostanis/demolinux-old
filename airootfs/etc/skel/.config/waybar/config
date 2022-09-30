@@ -66,7 +66,7 @@
 		"tooltip-format-ethernet": "{ifname}: {ipaddr}/{cidr}",
 		"format-disconnected": "",
 		"tooltip-format-disconnected": "No Internet.",
-		"on-click": "wific"
+		"on-click": "iwgtk"
 	},
 	"wlr/taskbar": {
 		"format": "{icon} {title:.20}",
