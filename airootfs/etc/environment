@@ -2,6 +2,7 @@ export EDITOR=vim
 # vimpager is broken
 #export PAGER=vimpager
 export PAGER=less
+export GTK_THEME=Adwaita:dark
 export QT_QPA_PLATFORM=wayland
 export QT_STYLE_OVERRIDE=kvantum
 export MOZ_ENABLE_WAYLAND=1

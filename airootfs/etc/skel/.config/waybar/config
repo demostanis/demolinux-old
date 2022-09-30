@@ -5,7 +5,7 @@
 	"height": 27,
 	// wlr/taskbar is on hold because it sucks
 	// well actually waybar itself sucks
-	"modules-left": ["custom/theme", "custom/effects", "custom/lokinet", "custom/song"], //, "wlr/taskbar"],
+	"modules-left": ["custom/effects", "custom/lokinet", "custom/song"], //, "wlr/taskbar"],
 	"modules-center": ["clock"],
 	"modules-right": ["network", "cpu", "memory", "temperature", "battery", "backlight", "pulseaudio", "keyboard-state"],
 	"keyboard-state": {
@@ -74,16 +74,6 @@
 		"on-click": "activate",
 		"on-click-middle": "close",
 		"on-click-right": "minimize-raise"
-	},
-	"custom/theme": {
-		"exec": "theme init",
-		"on-click": "theme switch",
-		"format": "{icon}",
-		"return-type": "json",
-		"format-icons": {
-			"dark": "",
-			"light": ""
-		}
 	},
 	"custom/effects": {
 		"on-click": "effects blur",

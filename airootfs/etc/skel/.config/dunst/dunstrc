@@ -8,7 +8,7 @@ offset = 0x20
 format = "<b>%s</b> (%a)\n%b"
 # do not show (U) and (A)
 show_indicators = false
-dmenu = themed-bemenu -p Choose:
+dmenu = bemenu -bip Choose:
 frame_width = 0
 corner_radius = 5
 
