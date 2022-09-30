@@ -14,13 +14,29 @@ if [ `tty` = /dev/tty1 ]; then
 		rm ~/.config/default-dconf
 	fi
 
-	infon "Set a password \x1b[0m(or press return for an empty one): " && read -s pw
-	[ -n "$pw" ] && passwd >/dev/null 2>&1 <<EOP
+	wf() { wayfire >.wayfire.log 2>&1 }
+
+	keyfile=$(mktemp)
+	# we have to use a temporary file here
+	# because $() prevents infot from reading STDIN...
+	# or whatever is wrong. i hate zsh now
+	infot Starting Wayfire %3s...\
+	"\n\x1b[0mPress ^C to cancel" >$keyfile
+	key=$(<$keyfile); rm -f $keyfile
+	(( $? != 0 )) && return
+
+	# we use asteriks here since $key might (mysteriously) contain newlines
+	case $key in
+		*" "*|*p*)
+			infon "\x1b[2K\x1b[1A\x1b[2K\x1b[1ASet a password \x1b[0m(or press return for an empty one): " && read -s pw
+			[ -n "$pw" ] && passwd >/dev/null 2>&1 <<EOP
 $pw
 $pw
 EOP
-	infot Starting Wayfire %3s...\
-	"\n\x1b[0mPress ^C to cancel                                  "\
-	&& wayfire >.wayfire.log 2>&1
+			wf
+			;;
+		*)
+			wf
+			;;
+	esac
 fi
-

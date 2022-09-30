@@ -41,34 +41,58 @@ aur() {
 }
 
 info() {
-	echo -e "\x1b[1m[*] \x1b[32m$@\x1b[0m"
+	echo -e "\x1b[1m[*] \x1b[32m$@\x1b[0m" 1>&2
 }
 
 infon() {
-	echo -ne "\x1b[1m[*] \x1b[32m$@\x1b[0m"
+	echo -ne "\x1b[1m[*] \x1b[32m$@\x1b[0m" 1>&2
 }
 
 infot() {
+	# this should really be implemented as a separate
+	# command, not written in zsh
+
 	t=$(grep -o '%[0-9]\+s' <<< $@)
 	t=${${t%?}:1}
 	nl=$(wc -l <<< $@)
 	nl=$(($nl+1))
 
-	repeat $nl echo
+	repeat $nl echo 1>&2
 	for i in {0..$t}; do
-		echo -ne "\x1b[${nl}A\x1b[0K"
+		echo -ne "\x1b[${nl}A\x1b[0K" 1>&2
 		# <space>s are replaced in the second
 		# sed, because putting spaces instead of
 		# them in the first sed leads to weird
 		# errors (most likely a bug)
-		echo -e "\x1b[1m[*] \x1b[32m$(sed 's#%\([0-9]\+\)s#'$((($t==0))&&echo now||echo 'in\x1b[0m<space>'$t'<space>\x1b[1;32msecond'$((($t>1))&&echo s))'#' <<< $@ | sed 's/<space>/ /g')\x1b[0m"
+		echo -e "\x1b[1m[*] \x1b[32m$(sed 's#%\([0-9]\+\)s#'$((($t==0))&&echo now||echo 'in\x1b[0m<space>'$t'<space>\x1b[1;32msecond'$((($t>1))&&echo s))'#' <<< $@ | sed 's/<space>/ /g')\x1b[0m" 1>&2
 		t=$(($t-1))
 		sleep 1
 	done&!
-	# stop if return is pressed
 	p=$!;
-	trap 'kill $p; return 1' INT
-	read -st $((t+1)); kill $p
+	trap 'kill $p 2>DN; return 1' INT
+
+	# stop if any key is pressed
+	# yes, this is awful. i've tried many techniques,
+	# including read -kt (which only works from time to time),
+	# killing a subprocess containing read in the above for loop
+	# once it ends, none of which succeeded, due to some quirks
+	# or bugs in zsh. read being a shell builtin being the main
+	# cause: that's an horrible design for a shell where the
+	# concept is to have commands working altogether. let's
+	# say you want to stop reading user input after some time:
+	# the shell has to implement a command which supports -t
+	# (which isn't POSIX). in case it's buggy (the case of
+	# zsh, try to use read -kt while having a background job
+	# printing to the standard output and it will act weird),
+	# you're on your own...
+	# what if instead you want to stop it when some condition
+	# is met? well, same fate mate. and you can't use the
+	# timeout command, since read is a builtin. oh and you
+	# can't use kill either, because read doesn't spawn a
+	# process. it's a builtin, remember?
+	timeout $((t+1)) perl -e '
+	`stty cbreak -echo`;sysread STDIN,$,,1;print$,
+	' && kill $p 2>DN
 }
 
 # calculate time the last command
