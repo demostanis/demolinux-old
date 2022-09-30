@@ -21,6 +21,3 @@ packages/tobuild/*/*.tar.*
 packages/tobuild/clapper/clapper-*
 packages/tobuild/firefox-*/*.xpi
 fx-folder.zip?raw=true
-
-# to test archinstall
-disk.qcow2
