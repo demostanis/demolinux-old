@@ -21,10 +21,8 @@ EOF
 		if (($? > 0)); then # not done already
 			sed -i 's/autostart \\/autostart \\\
 		blur \\/' $HOME/.wayfire.conf
-			dconf write /com/gexperts/Tilix/profiles/2b7c4080-0ddd-46c5-8f23-563fd3ba789d/background-transparency-percent 50
 		else
 			sed -i '/blur \\/{N;s/blur \\\n//}' $HOME/.wayfire.conf
-			dconf write /com/gexperts/Tilix/profiles/2b7c4080-0ddd-46c5-8f23-563fd3ba789d/background-transparency-percent 0
 		fi
 		;;
 	*)

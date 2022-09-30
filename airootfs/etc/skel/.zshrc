@@ -1,8 +1,3 @@
-# See https://gnunn1.github.io/tilix-web/manual/vteconfig/
-if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
-	source /etc/profile.d/vte.sh
-fi
-
 # some key bindings
 set -o vi
 bindkey ^R history-incremental-pattern-search-backward

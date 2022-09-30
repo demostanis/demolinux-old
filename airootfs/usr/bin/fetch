@@ -1,8 +1,6 @@
 #!/bin/sh
 
-# for some reason tilix does not report the
-# window size with the method neofetch uses
-# (\x1b[14t)
+# alacritty doesn't report window size (\x1b[14t)
 # this is a workaround
 clear
 paste <(chafa --size 38x50 /usr/share/pixmaps/nyarch.png) <(neofetch --backend off --disable term)

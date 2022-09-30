@@ -2,14 +2,3 @@
 # in ~/.zlogin if ! -e ~/.config/dconf
 [org/gnome/desktop/interface]
 color-scheme='prefer-dark'
-
-[org/cinnamon/desktop/applications/terminal]
-exec='tilix'
-
-[com/gexperts/Tilix/keybindings]
-app-new-session='<Alt>t'
-win-reorder-next-session='<Shift><Alt>j'
-win-reorder-previous-session='<Shift><Alt>k'
-win-switch-to-next-session='<Alt>k'
-win-switch-to-previous-session='<Alt>j'
-
