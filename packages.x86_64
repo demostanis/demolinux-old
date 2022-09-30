@@ -86,7 +86,6 @@ python-whatthepatch
 qt5-wayland
 qwerty-lafayette
 reflector
-resolvconf
 ripgrep
 rofimoji
 rsync
@@ -96,6 +95,7 @@ slurp
 swappy
 swaybg
 syslinux
+systemd-resolvconf
 tmux
 torbrowser-launcher
 transmission-gtk
