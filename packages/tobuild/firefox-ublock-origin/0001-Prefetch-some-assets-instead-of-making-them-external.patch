@@ -1,0 +1,85 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: demostanis <demostanis@protonmail.com>
+Date: Sat, 1 Oct 2022 00:00:07 +0200
+Subject: [PATCH] Prefetch some assets instead of making them external
+
+---
+ assets/assets.json | 21 +++++++--------------
+ 1 file changed, 7 insertions(+), 14 deletions(-)
+
+diff --git a/assets/assets.json b/assets/assets.json
+index 622ca80fb..0cb7eb626 100644
+--- a/assets/assets.json
++++ b/assets/assets.json
+@@ -281,52 +281,46 @@
+ 	"adguard-annoyance": {
+ 		"content": "filters",
+ 		"group": "social",
+-		"off": true,
+ 		"title": "AdGuard Annoyances",
+-		"contentURL": "https://filters.adtidy.org/extension/ublock/filters/14.txt",
++		"contentURL": "assets/ublock/14.txt",
+ 		"supportURL": "https://github.com/AdguardTeam/AdguardFilters#adguard-filters",
+ 		"instructionURL": "https://kb.adguard.com/en/general/adguard-ad-filters"
+ 	},
+ 	"adguard-social": {
+ 		"content": "filters",
+ 		"group": "social",
+-		"off": true,
+ 		"title": "AdGuard Social Media",
+-		"contentURL": "https://filters.adtidy.org/extension/ublock/filters/4.txt",
++		"contentURL": "assets/ublock/4.txt",
+ 		"supportURL": "https://github.com/AdguardTeam/AdguardFilters#adguard-filters",
+ 		"instructionURL": "https://kb.adguard.com/en/general/adguard-ad-filters"
+ 	},
+ 	"fanboy-thirdparty_social": {
+ 		"content": "filters",
+ 		"group": "social",
+-		"off": true,
+ 		"title": "Anti-Facebook",
+-		"contentURL": "https://secure.fanboy.co.nz/fanboy-antifacebook.txt",
++		"contentURL": "assets/ublock/fanboy-antifacebook.txt",
+ 		"supportURL": "https://github.com/ryanbr/fanboy-adblock/issues"
+ 	},
+ 	"fanboy-annoyance": {
+ 		"content": "filters",
+ 		"group": "social",
+-		"off": true,
+ 		"title": "Fanboy’s Annoyance",
+-		"contentURL": "https://secure.fanboy.co.nz/fanboy-annoyance.txt",
++		"contentURL": "assets/ublock/fanboy-annoyance.txt",
+ 		"supportURL": "https://easylist.to/"
+ 	},
+ 	"fanboy-cookiemonster": {
+ 		"content": "filters",
+ 		"group": "social",
+-		"off": true,
+ 		"title": "EasyList Cookie",
+-		"contentURL": "https://secure.fanboy.co.nz/fanboy-cookiemonster.txt",
++		"contentURL": "assets/ublock/fanboy-cookiemonster.txt",
+ 		"supportURL": "https://github.com/easylist/easylist/issues"
+ 	},
+ 	"fanboy-social": {
+ 		"content": "filters",
+ 		"group": "social",
+-		"off": true,
+ 		"title": "Fanboy’s Social",
+ 		"contentURL": [
+-			"https://easylist.to/easylist/fanboy-social.txt",
++			"assets/ublock/fanboy-social.txt",
+ 			"https://secure.fanboy.co.nz/fanboy-social.txt"
+ 		],
+ 		"supportURL": "https://easylist.to/"
+@@ -335,8 +329,7 @@
+ 		"content": "filters",
+ 		"group": "social",
+ 		"title": "uBlock filters – Annoyances",
+-		"off": true,
+-		"contentURL": "https://ublockorigin.github.io/uAssets/filters/annoyances.txt",
++		"contentURL": "assets/ublock/annoyances.txt",
+ 		"cdnURLs": [
+ 			"https://ublockorigin.github.io/uAssetsCDN/filters/annoyances.txt",
+ 			"https://ublockorigin.pages.dev/filters/annoyances.txt",
+-- 
+2.37.3
+

@@ -1,9 +1,11 @@
 #!/bin/sh
 
-packages=${*:-gimmeasearx lokinet firefox-userchromejs firefox-keyconfig firefox-vimfx firefox-ytarb firefox-dark-reader firefox-sponsorblock lsb-release wlroots wf-config wayfire wlogout waybar wdisplays emmet-cli neo kakoune up kampliment qwerty-lafayette iwgtk}
+packages=${*:-gimmeasearx lokinet firefox-userchromejs firefox-keyconfig firefox-vimfx firefox-ytarb firefox-dark-reader firefox-sponsorblock firefox-ublock-origin lsb-release wlroots wf-config wayfire wlogout waybar wdisplays emmet-cli neo kakoune up kampliment qwerty-lafayette iwgtk}
 pgpkeys=(
 # Haden Collins <collinshaden@gmail.com> (wlogout)
 F4FDB18A9937358364B276E9E25D679AF73C6D2F
+# Raymond Hill <rhill@raymondhill.net> (firefox-ublock-origin)
+603B28AA5D6CD687A554347425E1490B761470C2
 )
 
 useradd -s/bin/sh -mG wheel builder 2>/dev/null

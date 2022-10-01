@@ -1,0 +1,24 @@
+From 527c857c1e1d9ce479bb6c1d43543bd98d8e219a Mon Sep 17 00:00:00 2001
+From: demostanis <demostanis@protonmail.com>
+Date: Sat, 1 Oct 2022 00:27:45 +0200
+Subject: [PATCH] Don't overwrite copied files
+
+---
+ tools/make-assets.sh | 1 -
+ 1 file changed, 1 deletion(-)
+
+diff --git a/tools/make-assets.sh b/tools/make-assets.sh
+index 3850f353a..5625a4875 100755
+--- a/tools/make-assets.sh
++++ b/tools/make-assets.sh
+@@ -13,7 +13,6 @@ cp -R ./assets $DES/
+ 
+ mkdir $DES/thirdparties
+ 
+-git submodule update --depth 1 --init
+ UASSETS=submodules/uAssets
+ 
+ cp -R $UASSETS/thirdparties/easylist-downloads.adblockplus.org $DES/thirdparties/
+-- 
+2.37.3
+
