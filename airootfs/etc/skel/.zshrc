@@ -65,6 +65,7 @@ infot() {
 		sleep 1
 	done&!
 	p=$!;
+
 	trap 'kill $p 2>DN; return 1' INT
 
 	# stop if any key is pressed
@@ -89,6 +90,7 @@ infot() {
 	timeout $((t+1)) perl -e '
 	`stty cbreak -echo`;sysread STDIN,$,,1;print$,
 	' && kill $p 2>DN
+	return 0
 }
 
 # calculate time the last command

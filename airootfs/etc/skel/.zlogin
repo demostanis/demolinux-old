@@ -17,8 +17,9 @@ if [ `tty` = /dev/tty1 ]; then
 	# or whatever is wrong. i hate zsh now
 	infot Starting Wayfire %3s...\
 	"\n\x1b[0mPress ^C to cancel" >$keyfile
+	s=$?
 	key=$(<$keyfile); rm -f $keyfile
-	(( $? != 0 )) && return
+	(( s != 0 )) && return
 
 	# we use asteriks here since $key might (mysteriously) contain newlines
 	case $key in
