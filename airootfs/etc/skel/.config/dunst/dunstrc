@@ -8,7 +8,7 @@ offset = 0x20
 format = "<b>%s</b> (%a)\n%b"
 # do not show (U) and (A)
 show_indicators = false
-dmenu = bemenu -bip Choose:
+dmenu = bemenu-run -H25 --{n,a,f,t,h}b=\#3A3738 --tf=\#F0F0F0 -bip Choose:
 frame_width = 0
 corner_radius = 5
 
