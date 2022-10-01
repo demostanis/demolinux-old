@@ -17,7 +17,9 @@ packages/tobuild/*/*/
 packages/tobuild/*/*.tar.*
 *.pkg.tar.zst
 
-# build files left despite -c flag on makepkg
-packages/tobuild/clapper/clapper-*
-packages/tobuild/firefox-*/*.xpi
-fx-folder.zip?raw=true
+# package builds residues
+!packages/tobuild/*/
+packages/tobuild/*/*
+!packages/tobuild/*/PKGBUILD
+!packages/tobuild/*/*.patch
+!packages/tobuild/lsb-release/lsb-release
