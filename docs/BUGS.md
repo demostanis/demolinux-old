@@ -1,7 +1,4 @@
-Testing in QEMU sucks. Frequent crashes.
+Testing in QEMU sucks because Wayfire doesn't let it grab the input.
+There's also random crashes for some reason, mostly in Firefox.
 
 There's a lot of bloat.
-
-The installer doesn't work too well.
-
-Trying to install packages too early after booting the system has a race condition with pacman-init.service.
