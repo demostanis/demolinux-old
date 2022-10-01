@@ -7,13 +7,19 @@ makedepends=(unzip)
 depends=(firefox)
 url=https://github.com/xiaoxiaoflood/firefox-scripts
 license=(MPL2)
-source=("$url/blob/master/fx-folder.zip?raw=true")
+source=(
+	"$url/blob/master/fx-folder.zip?raw=true"
+	"$url/blob/master/utils.zip?raw=true"
+)
 
 package() {
 	cd "$srcdir"
-  install -d $pkgdir/usr/lib/firefox/defaults/pref
-  install config.js $pkgdir/usr/lib/firefox/
-  install defaults/pref/config-prefs.js $pkgdir/usr/lib/firefox/defaults/pref/
+  install -d "$pkgdir/usr/lib/firefox/defaults/pref"
+  install config.js "$pkgdir/usr/lib/firefox/"
+  install defaults/pref/config-prefs.js "$pkgdir/usr/lib/firefox/defaults/pref/"
+  install -d "$pkgdir/usr/lib/firefox-userchromejs/"
+  install utils/* "$pkgdir/usr/lib/firefox-userchromejs/"
 }
 
-sha256sums=('d2c13fa422b36d9efb1fed3d59b6d9a2ef65acf0760de1bbeb936004739d14ee')
+sha256sums=('d2c13fa422b36d9efb1fed3d59b6d9a2ef65acf0760de1bbeb936004739d14ee'
+            '67c8085410ccaade6f96e034d386dd02756419d5b1d83e9937ad76e8b5f4ecca')
