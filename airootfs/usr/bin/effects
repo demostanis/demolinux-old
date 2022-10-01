@@ -21,7 +21,9 @@ EOF
 		if (($? > 0)); then # not done already
 			sed -i 's/autostart \\/autostart \\\
 		blur \\/' $HOME/.wayfire.conf
+			sed -i 's/opacity: .*/opacity: 0.5/' $HOME/.config/alacritty.yml
 		else
+			sed -i 's/opacity: .*/opacity: 1/' $HOME/.config/alacritty.yml
 			sed -i '/blur \\/{N;s/blur \\\n//}' $HOME/.wayfire.conf
 		fi
 		;;
