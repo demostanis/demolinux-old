@@ -46,3 +46,6 @@
 [submodule "airootfs/etc/skel/.tmux/plugins/tpm"]
 	path = airootfs/etc/skel/.tmux/plugins/tpm
 	url = https://github.com/tmux-plugins/tpm
+[submodule "airootfs/etc/skel/.config/kak/plugins/kakoune-state-save"]
+	path = airootfs/etc/skel/.config/kak/plugins/kakoune-state-save
+	url = https://gitlab.com/Screwtapello/kakoune-state-save

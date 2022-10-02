@@ -25,6 +25,7 @@ plug "kak-lsp/kak-lsp" config %{
 }
 plug "alexherbo2/alacritty.kak"
 plug "occivink/kakoune-snippets"
+plug "Screwtapello/kakoune-state-save" domain "gitlab.com"
 plug "JJK96/kakoune-emmet" config %{
 	hook global WinSetOption filetype=html %{
 		emmet-enable-autocomplete
