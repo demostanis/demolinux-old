@@ -27,6 +27,7 @@ file_permissions=(
   ["/usr/bin/lyrics"]="0:0:755"
   ["/usr/bin/ssw"]="0:0:755"
   ["/usr/bin/wfipc"]="0:0:755"
+  ["/usr/bin/ressess"]="0:0:755"
 )
 for file in $(find airootfs/etc/skel/.tmux/plugins/ -type f); do
   file_permissions+=(

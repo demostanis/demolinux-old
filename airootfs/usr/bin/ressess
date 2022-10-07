@@ -1,0 +1,21 @@
+#!/bin/zsh
+# remove user files to get a clean demolinux
+# without rebooting
+
+for file in /run/archiso/cowspace/**/upperdir/**/*(D); do
+	filename=${file##/run/archiso/cowspace/**/upperdir}
+	if ! stat "/run/archiso/airootfs$filename" >/dev/null 2>&1; then
+		rm -frv "$filename"
+	fi
+done
+
+# services that need to rebuild their cache
+services=(
+	iwd
+	ldconfig
+	reflector
+	pacman-init
+	lokinet
+)
+for service in ${services[@]}; echo restarting $service && systemctl restart $service
+echo done
