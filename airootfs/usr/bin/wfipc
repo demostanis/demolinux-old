@@ -1,0 +1,25 @@
+#!/usr/bin/env python
+# https://github.com/WayfireWM/wayfire/pull/1472 says
+# that stipc is only for tests, not users. however, it
+# has lets us access useful information, so let's use it...
+
+from socket import socket, AF_UNIX, SOCK_STREAM
+from json import loads, dumps
+import os, sys
+
+client = socket(AF_UNIX, SOCK_STREAM)
+display = os.getenv("WAYLAND_DISPLAY", "wayland-1")
+client.connect(f"/tmp/wayfire-{display}.socket")
+
+method = sys.argv[1]
+message = "{}" if len(sys.argv) < 3 else sys.argv[2]
+
+data = dumps({
+	"method": method,
+	"data": loads(message)
+}).encode('utf-8')
+header = len(data).to_bytes(4, byteorder="little")
+client.send(header)
+client.send(data)
+
+print(client.recv(int.from_bytes(client.recv(4), byteorder="little")).decode("utf-8"))

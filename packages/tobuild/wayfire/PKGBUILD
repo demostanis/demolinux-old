@@ -13,7 +13,7 @@ provides=("${pkgname%-git}")
 conflicts=("${pkgname%-git}")
 replaces=()
 options=()
-source=('git+https://github.com/WayfireWM/wayfire#commit=6720f6a6e902d2a100158b31f611cddb1a2568bd'
+source=('git+https://github.com/WayfireWM/wayfire#commit=c3dac7ee268c6a11a2cdbdd4336aa0e06eca912f'
 	'scale_cpp.patch')
 sha256sums=('SKIP'
             '6bbeeae52f2122f190825ecbd32cc512f9898c292c10a73cc1578f05459098ce')
