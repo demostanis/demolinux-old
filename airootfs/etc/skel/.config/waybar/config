@@ -5,7 +5,7 @@
 	"height": 27,
 	// wlr/taskbar is on hold because it sucks
 	// well actually waybar itself sucks
-	"modules-left": ["custom/effects", "custom/lokinet", "custom/song"], //, "wlr/taskbar"],
+	"modules-left": ["custom/effects", "custom/lokinet", "custom/ressess", "custom/song"], //, "wlr/taskbar"],
 	"modules-center": ["clock"],
 	"modules-right": ["network", "cpu", "memory", "temperature", "battery", "backlight", "pulseaudio", "keyboard-state"],
 	"keyboard-state": {
@@ -88,6 +88,12 @@
 		"exec": "sh -c 'echo && lokinet-vpn --status'",
 		"interval": 5,
 		"format": ""
+	},
+	"custom/ressess": {
+		"on-click": "yad --button yad-no:1 --button yad-yes:0 --text 'This is going to delete all files you created since you booted up demolinux. Are you sure?' && pkexec ressess | yad --text-info --tail --height 300",
+		"exec": "sh -c 'echo && echo Reset session'",
+		"interval": "once",
+		"format": ""
 	},
 	"custom/song": {
 		"exec": "song",
