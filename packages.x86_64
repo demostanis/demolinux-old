@@ -6,6 +6,7 @@ archiso
 base
 base-devel
 bat
+bc
 bemenu-wayland
 bind
 btop

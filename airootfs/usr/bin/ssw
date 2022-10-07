@@ -1,0 +1,13 @@
+#!/bin/sh
+
+geom=$(slurp -b ffffff00 -p -f '%x,%y')
+wfipc core/feed_button '{"mode":"full","combo":"BTN_LEFT"}'
+x=$(echo "$geom" | cut -d, -f1)
+y=$(echo "$geom" | cut -d, -f2)
+views=$(wfipc core/list_views)
+
+id=$(echo "$views" | jq -j '.[] | select(.["app-id"]!="wallpaper") | "print \"",.id,":\";sqrt((",.geometry.x,"-'$x')^2+","(",.geometry.y,"-'$y')^2)\n"' | bc | sort -k2 -t: -g | head -n1 | cut -d: -f1)
+geom=$(echo "$views" | jq '.[] | select(.id=='$id') | .geometry')
+geom=$(echo "$geom" | jq -j '.x,",",.y," ",.width,"x",.height')
+
+grim -g "$geom" - | swappy -f -
