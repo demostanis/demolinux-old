@@ -59,10 +59,10 @@ linux-firmware
 linux-headers
 lokinet
 lua
+lxqt-policykit
 lynx
 man
 man-db
-mate-polkit
 memtest86+
 mesa-utils
 mkinitcpio
