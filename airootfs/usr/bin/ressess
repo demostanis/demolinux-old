@@ -4,8 +4,10 @@
 
 for file in /run/archiso/cowspace/**/upperdir/**/*(D); do
 	filename=${file##/run/archiso/cowspace/**/upperdir}
-	if ! stat "/run/archiso/airootfs$filename" >/dev/null 2>&1; then
+	if [ ! -e "/run/archiso/airootfs$filename" ]; then
 		rm -frv "$filename"
+	elif [ ! -d "/run/archiso/airootfs$filename" ]; then
+		cp -vr "/run/archiso/airootfs$filename" "$filename"
 	fi
 done
 
