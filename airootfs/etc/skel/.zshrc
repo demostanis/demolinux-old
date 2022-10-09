@@ -119,6 +119,8 @@ precmd() {
 	unset format_elapsed initial_seconds
 }
 
+eval "$(direnv hook zsh)"
+
 # show exit code
 RPROMPT='%B%F{red}%(?..%?)'
 # beautiful prompt
