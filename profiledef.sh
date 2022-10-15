@@ -15,21 +15,8 @@ airootfs_image_type="erofs"
 airootfs_image_tool_options=('-d3zlz4hc,12')
 file_permissions=(
   ["/etc/shadow"]="0:0:400"
-  ["/usr/bin/hardened-firefox"]="0:0:755"
-  ["/usr/bin/lofi"]="0:0:755"
-  ["/usr/bin/chillhop"]="0:0:755"
-  ["/usr/bin/song"]="0:0:755"
-  ["/usr/bin/effects"]="0:0:755"
-  ["/usr/bin/color-picker"]="0:0:755"
-  ["/usr/bin/fetch"]="0:0:755"
-  ["/usr/bin/u"]="0:0:755"
-  ["/usr/bin/t"]="0:0:755"
-  ["/usr/bin/lyrics"]="0:0:755"
-  ["/usr/bin/ssw"]="0:0:755"
-  ["/usr/bin/wfipc"]="0:0:755"
-  ["/usr/bin/ressess"]="0:0:755"
 )
-for file in $(find airootfs/etc/skel/.tmux/plugins/ -type f); do
+for file in $(find airootfs/usr/bin/ airootfs/etc/skel/.tmux/plugins/ -type f); do
   file_permissions+=(
   	["${file##airootfs}"]="0:0:755"
   )
