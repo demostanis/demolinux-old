@@ -1,0 +1,6 @@
+[user]
+	email = demostanis@protonmail.com
+	name = demostanis
+[core]
+	sshCommand = ssh -i /data/.ssh/id_rsa
+	excludesFile = /data/.gitignore
