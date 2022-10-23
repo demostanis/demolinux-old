@@ -7,9 +7,9 @@ you need to build them yourself from source.
 
 If you are running Arch Linux, you only need to `pacman -S archiso git`. Clone the repository
 and run `make` as root. That should build packages and the ISO. Depending on your hardware, this
-might take awhile. For more information about make targets, check [`MAKE.md`](./docs/MAKE.md).
+might take awhile. For more information about make targets, check [`MAKE.md`](./MAKE.md).
 
-If you are already running demolinux, check [`BUILDING_ON_DEMOLINUX.md`](./docs/BUILDING_ON_DEMOLINUX.md).
+If you are already running demolinux, check [`BUILDING_ON_DEMOLINUX.md`](./BUILDING_ON_DEMOLINUX.md).
 
 Once built, you can flash the ISO using the `flash` make target.
 
