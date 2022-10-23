@@ -84,6 +84,7 @@ polkit
 poppler
 pulseaudio
 python-lsp-server
+python-pre-commit
 python-rope
 python-whatthepatch
 qt5-wayland
