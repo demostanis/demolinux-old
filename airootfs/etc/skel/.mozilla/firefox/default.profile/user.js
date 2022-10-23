@@ -67,3 +67,6 @@ user_pref("browser.urlbar.suggest.topsites", false);
 
 user_pref("network.IDN_show_punycode", true);
 
+user_pref("privacy.userContext.enabled", true);
+user_pref("privacy.userContext.newTabContainerOnLeftClick.enabled", true);
+user_pref("privacy.userContext.ui.enabled", true);
