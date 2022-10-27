@@ -6,7 +6,7 @@ x=$(echo "$geom" | cut -d, -f1)
 y=$(echo "$geom" | cut -d, -f2)
 views=$(wfipc core/list_views)
 
-id=$(echo "$views" | jq -j '.[] | select(.["app-id"]!="wallpaper") | "print \"",.id,":\";sqrt((",.geometry.x,"-'$x')^2+","(",.geometry.y,"-'$y')^2)\n"' | bc | sort -k2 -t: -g | head -n1 | cut -d: -f1)
+id=$(echo "$views" | jq -j '.[] | select(.state.active) | .id' | head -n1)
 geom=$(echo "$views" | jq '.[] | select(.id=='$id') | .geometry')
 geom=$(echo "$geom" | jq -j '.x,",",.y," ",.width,"x",.height')
 
