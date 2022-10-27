@@ -19,13 +19,16 @@ conflicts=("${pkgname%-git}")
 replaces=()
 options=()
 source=('git+https://github.com/WayfireWM/wayfire#commit=c3dac7ee268c6a11a2cdbdd4336aa0e06eca912f'
-	'scale_cpp.patch')
+	'scale_cpp.patch'
+	'active_state.patch')
 sha256sums=('SKIP'
-            '6bbeeae52f2122f190825ecbd32cc512f9898c292c10a73cc1578f05459098ce')
+            '6bbeeae52f2122f190825ecbd32cc512f9898c292c10a73cc1578f05459098ce'
+            'b193910d3e7df10ba11982ca383b48a04a67e6b0cf32561d022c7e4af9bd9982')
 
 prepare() {
 	    cd "$srcdir/wayfire"
 	    patch --forward --strip=0 --input="${srcdir}/scale_cpp.patch"
+	    patch --forward --strip=1 --input="${srcdir}/active_state.patch"
 }
 
 build() {

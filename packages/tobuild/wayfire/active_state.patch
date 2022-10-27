@@ -1,0 +1,24 @@
+From d8f0238d42265fb328f5d9bece02046bb0e02162 Mon Sep 17 00:00:00 2001
+From: demostanis <demostanis@protonmail.com>
+Date: Thu, 27 Oct 2022 11:48:17 +0200
+Subject: [PATCH] Send active state through IPC
+
+---
+ plugins/ipc/stipc.cpp | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/plugins/ipc/stipc.cpp b/plugins/ipc/stipc.cpp
+index 4fffd2d..ca7f182 100644
+--- a/plugins/ipc/stipc.cpp
++++ b/plugins/ipc/stipc.cpp
+@@ -258,6 +258,7 @@ class ipc_plugin_t
+                 {"tiled", view->tiled_edges},
+                 {"fullscreen", view->fullscreen},
+                 {"minimized", view->minimized},
++                {"active", view->activated},
+             };
+ 
+             uint32_t layer = -1;
+-- 
+2.38.1
+
