@@ -59,6 +59,7 @@ linux
 linux-firmware
 linux-headers
 lokinet
+lsof
 lua
 lxqt-policykit
 lynx
@@ -77,6 +78,7 @@ neofetch
 nomacs
 noto-fonts
 ntfs-3g
+openbsd-netcat
 openssh
 otf-font-awesome
 pacman-contrib
