@@ -1,5 +1,5 @@
 pkgname=kakoune
-pkgver=2021.11.08_r429_g360a6847
+pkgver=2021.11.08_r458_gcb33918f
 pkgrel=1
 pkgdesc="Multiple-selection, UNIX-flavored modal editor"
 arch=("x86_64" "armv7h")
