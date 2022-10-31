@@ -1,8 +1,9 @@
 #!/bin/sh
+# https://wiki.archlinux.org/title/Bubblewrap#Firefox
 
 mkdir -p $HOME/downloads
 
-# https://wiki.archlinux.org/title/Bubblewrap#Firefox
+systemd-run --user -E WAYLAND_DISPLAY=$WAYLAND_DISPLAY -p MemoryMax=2G -p CPUQuota=50% \
 bwrap \
 --symlink usr/lib /lib \
 --symlink usr/lib64 /lib64 \
