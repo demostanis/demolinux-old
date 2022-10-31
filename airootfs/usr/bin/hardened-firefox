@@ -3,7 +3,7 @@
 
 mkdir -p $HOME/downloads
 
-systemd-run --user -E WAYLAND_DISPLAY=$WAYLAND_DISPLAY -p MemoryMax=2G -p CPUQuota=50% \
+systemd-run --user -E WAYLAND_DISPLAY=$WAYLAND_DISPLAY -p MemoryMax=6G \
 bwrap \
 --symlink usr/lib /lib \
 --symlink usr/lib64 /lib64 \
