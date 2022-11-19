@@ -41,7 +41,7 @@ prepare() {
   cd uBlock
   git submodule init
   git config submodule.submodules/uAssets.url ../uAssets
-  git submodule update
+  git -c protocol.file.allow=always submodule update
 
 	for file in ../*.txt; do
 		echo copying $file

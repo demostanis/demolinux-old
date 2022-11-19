@@ -53,7 +53,12 @@ prepare() {
 build() {
     cd "${srcdir}/${pkgname}"
     rm -rf "${srcdir}/build"
-    meson -Drfkill=enabled -Dtests=disabled --prefix=/usr "${srcdir}/build"
+    meson -Dsndio=disabled \
+			-Drfkill=enabled \
+			-Dtests=disabled \
+			-Dupower_glib=disabled \
+			--prefix=/usr \
+			"${srcdir}/build"
     ninja -C "${srcdir}/build"
 }
 

@@ -1,5 +1,8 @@
 #!/bin/sh
 
+echo Updating container...
+pacman -Syu --noconfirm
+
 packages=${*:-metatorrent gimmeasearx lokinet firefox-userchromejs firefox-keyconfig firefox-vimfx firefox-ytarb firefox-dark-reader firefox-sponsorblock firefox-ublock-origin lsb-release wlroots wf-config wayfire wlogout waybar wdisplays emmet-cli neo kakoune up kampliment qwerty-lafayette iwgtk}
 pgpkeys=(
 # Haden Collins <collinshaden@gmail.com> (wlogout)

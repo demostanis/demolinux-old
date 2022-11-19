@@ -1,5 +1,5 @@
 pkgname=kakoune
-pkgver=2021.11.08_r458_gcb33918f
+pkgver=2022.10.31_r16_g91d45a10
 pkgrel=1
 pkgdesc="Multiple-selection, UNIX-flavored modal editor"
 arch=("x86_64" "armv7h")
@@ -22,10 +22,8 @@ makedepends=(
 )
 provides=("kakoune=${pkgver}")
 conflicts=("kakoune")
-source=("${pkgname}::git+https://github.com/mawww/kakoune.git"
-				"https://github.com/mawww/kakoune/pull/4725.patch")
-sha256sums=('SKIP'
-            '3161c1d164cb02acad661b29d38819f40486ea83dbbc9c179bf2116b61dab7d9')
+source=("${pkgname}::git+https://github.com/mawww/kakoune.git")
+sha256sums=('SKIP')
 options=("!buildflags")
 
 pkgver() {
@@ -35,7 +33,6 @@ pkgver() {
 
 prepare() {
 		cd "${srcdir}/${pkgname}"
-		patch -p1 < "$srcdir"/*.patch
 }
 
 check() {
