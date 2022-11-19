@@ -44,6 +44,7 @@ bwrap \
 --bind $HOME/.mozilla /firefox/.mozilla \
 --bind $HOME/downloads /firefox/Downloads \
 --ro-bind $HOME/.config/zathura/zathurarc /firefox/.config/zathura/zathurarc \
+--ro-bind $HOME/.vimfx /firefox/.vimfx \
 --setenv HOME /firefox \
 --setenv GTK_THEME Adwaita:dark \
 --setenv MOZ_ENABLE_WAYLAND 1 \

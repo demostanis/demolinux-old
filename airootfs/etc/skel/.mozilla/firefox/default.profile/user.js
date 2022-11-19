@@ -72,3 +72,14 @@ user_pref("privacy.userContext.newTabContainerOnLeftClick.enabled", true);
 user_pref("privacy.userContext.ui.enabled", true);
 
 user_pref("browser.tabs.firefox-view", false);
+
+// https://github.com/akhodakivskiy/VimFx/blob/master/documentation/config-file.md
+user_pref("extensions.VimFx.config_file_directory", "/firefox/.vimfx/");
+// This only works in hardened-firefox.
+user_pref("security.sandbox.content.read_path_whitelist", "/firefox/.vimfx/");
+user_pref("extensions.VimFx.prevent_autofocus", true);
+user_pref("extensions.VimFx.mode.normal.scroll_page_down", "<c-f>");
+user_pref("extensions.VimFx.mode.normal.scroll_page_up", "<c-b>");
+
+// To use the parent-process Browser console
+user_pref("devtools.chrome.enabled", true);
