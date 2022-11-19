@@ -2,6 +2,8 @@
 source $VIM/vimfiles/archlinux.vim
 source $VIMRUNTIME/defaults.vim
 
+set ttymouse=xterm
+set mouse=a
 " tabs
 set ts=2 sw=2
 " highlight search
