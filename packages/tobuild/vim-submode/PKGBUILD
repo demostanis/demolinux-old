@@ -1,0 +1,19 @@
+pkgname=vim-submode
+pkgver=1
+_scriptid=9591
+pkgrel=1
+pkgdesc='Create your own submodes'
+arch=('any')
+url='http://www.vim.org/scripts/script.php?script_id=2467'
+license=('custom:vim')
+groups=('vim-plugins')
+depends=('vim')
+source=(submode.zip::https://www.vim.org/scripts/download_script.php?src_id=$_scriptid)
+md5sums=('a4454d6f824f8104e1a20b170e182d28')
+
+package() {
+  install -d ${pkgdir}/usr/share/vim/vimfiles/autoload
+  install -D -m644 ${srcdir}/${pkgname}*/autoload/submode.vim ${pkgdir}/usr/share/vim/vimfiles/autoload
+}
+
+# vim:set ts=2 sw=2 et:

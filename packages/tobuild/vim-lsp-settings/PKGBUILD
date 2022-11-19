@@ -1,0 +1,36 @@
+# Maintainer: Shengyu Zhang <la@archlinuxcn.org>
+
+pkgname=vim-lsp-settings
+pkgver=bde172e
+pkgrel=1
+pkgdesc='auto configurations for vim-lsp'
+arch=('any')
+url="https://github.com/mattn/${pkgname}"
+license=('MIT')
+makedepends=('git')
+depends=('vim' 'vim-lsp')
+groups=('vim-plugins')
+source=("git+https://github.com/mattn/${pkgname}.git")
+sha256sums=('SKIP')
+
+pkgver() {
+    cd ${srcdir}/${pkgname}
+    echo "$(git describe --always)"
+}
+
+package() {
+  install -d "${pkgdir}/usr/share/vim/vimfiles/"
+
+  cd ${srcdir}/${pkgname}
+
+	# vimfiles is so fucking messy
+  cp -dpr --no-preserve=ownership doc "${pkgdir}/usr/share/vim/vimfiles/doc"
+  cp -dpr --no-preserve=ownership autoload "${pkgdir}/usr/share/vim/vimfiles/autoload"
+  cp -dpr --no-preserve=ownership plugin "${pkgdir}/usr/share/vim/vimfiles/plugin"
+  cp -dpr --no-preserve=ownership installer "${pkgdir}/usr/share/vim/vimfiles/installer"
+  cp -dpr --no-preserve=ownership checkers "${pkgdir}/usr/share/vim/vimfiles/checkers"
+  cp -dpr --no-preserve=ownership settings "${pkgdir}/usr/share/vim/vimfiles/settings"
+  cp -dp --no-preserve=ownership settings.json "${pkgdir}/usr/share/vim/vimfiles/settings.json"
+
+  install -Dm0644 LICENSE "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
+}

@@ -1,0 +1,39 @@
+# Maintainer: Shengyu Zhang <la@archlinuxcn.org>
+
+pkgname=vim-lsp
+pkgver=0.957.e42203b4
+pkgrel=1
+pkgdesc='async language server protocol plugin for vim and neovim'
+arch=('any')
+url="https://github.com/prabirshrestha/${pkgname}"
+license=('MIT')
+makedepends=('git')
+depends=('vim')
+groups=('vim-plugins')
+source=("git+https://github.com/prabirshrestha/${pkgname}.git"
+	'0001-Add-a-lsp-can_scroll-function.patch')
+sha256sums=('SKIP'
+            '43e76762d298f136af6b7086182e7a84b7a65bca8bee1acd7426b8e4ec3e9373')
+
+pkgver() {
+    cd ${srcdir}/${pkgname}
+    echo "0.$(git rev-list --count HEAD).$(git describe --always)"
+}
+
+prepare() {
+  cd ${srcdir}/${pkgname}
+	patch -p1< ../0001-Add-a-lsp-can_scroll-function.patch
+}
+
+package() {
+  install -d "${pkgdir}/usr/share/vim/vimfiles/"
+
+  cd ${srcdir}/${pkgname}
+
+  cp -dpr --no-preserve=ownership doc "${pkgdir}/usr/share/vim/vimfiles/doc"
+  cp -dpr --no-preserve=ownership autoload "${pkgdir}/usr/share/vim/vimfiles/autoload"
+  cp -dpr --no-preserve=ownership ftplugin "${pkgdir}/usr/share/vim/vimfiles/ftplugin"
+  cp -dpr --no-preserve=ownership plugin "${pkgdir}/usr/share/vim/vimfiles/plugin"
+
+  install -Dm0644 LICENSE "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
+}

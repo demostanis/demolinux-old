@@ -1,0 +1,27 @@
+From bd296d3988a0ac8037c69c7aad42471e1859ef7b Mon Sep 17 00:00:00 2001
+From: demostanis <demostanis@protonmail.com>
+Date: Sun, 13 Nov 2022 21:29:17 +0100
+Subject: Add a lsp#can_scroll function
+
+---
+ autoload/lsp.vim | 5 +++++
+ 1 file changed, 5 insertions(+)
+
+diff --git a/autoload/lsp.vim b/autoload/lsp.vim
+index c35d7bc..e4abe01 100644
+--- a/autoload/lsp.vim
++++ b/autoload/lsp.vim
+@@ -1295,6 +1295,11 @@ function! lsp#scroll(count) abort
+     return "\<Ignore>"
+ endfunction
+ 
++function! lsp#can_scroll() abort
++	let l:Window = vital#lsp#import('VS.Vim.Window')
++	return len(l:Window.find({ winid -> l:Window.is_floating(winid) })) > 0
++endfunction
++
+ function! s:merge_dict(dict_old, dict_new) abort
+     for l:key in keys(a:dict_new)
+         if has_key(a:dict_old, l:key) && type(a:dict_old[l:key]) == v:t_dict && type(a:dict_new[l:key]) == v:t_dict
+-- 
+2.38.1

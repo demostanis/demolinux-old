@@ -1,0 +1,37 @@
+# Maintainer: Max Gautier <mg+archlinux@max.gautier.name>
+# Contributor: Wilson E. Alvarez <wilson.e.alvarez1@gmail.com>
+# Contributor: Rodrigo Gryzinski <rogryza@gmail.com>
+
+_pkgname=asyncomplete.vim
+pkgname=vim-asyncomplete
+pkgver=2.1.0.r34.g9c76518
+pkgrel=1
+pkgdesc="Async autocompletion for Vim 8 and Neovim with timers"
+arch=('any')
+url="https://github.com/prabirshrestha/${_pkgname}.git"
+license=('MIT')
+depends=('vim')
+makedepends=('git')
+groups=('vim-plugins')
+conflicts=('vim-asyncomplete')
+provides=('vim-asyncomplete')
+source=("git+$url")
+sha512sums=('SKIP')
+
+pkgver() {
+	cd "$_pkgname"
+	git describe --tags | tail --bytes +2 | sed -e 's/-/.r/' -e 's/-/./'
+}
+
+package() {
+	cd "$_pkgname"
+
+	install -Dm 644 "LICENSE" "$pkgdir/usr/share/licenses/${_pkgname}/LICENSE"
+
+	# Install vimfiles
+	local vimfiles="$pkgdir/usr/share/vim/vimfiles"
+	mkdir -p "$vimfiles"
+	cp -dr --no-preserve=ownership autoload "$vimfiles"
+	cp -dr --no-preserve=ownership doc "$vimfiles"
+	cp -dr --no-preserve=ownership plugin "$vimfiles"
+}

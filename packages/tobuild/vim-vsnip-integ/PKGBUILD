@@ -1,0 +1,27 @@
+# Maintainer: Max Gautier <mg+archlinux@max.gautier.name>
+pkgname=vim-vsnip-integ
+pkgver=r63.1cf8990
+pkgrel=1
+pkgdesc="vim-vsnip integration with other plugins(LSP clients, completion engines)"
+arch=('any')
+url="https://github.com/hrsh7th/$pkgname"
+license=('MIT')
+groups=('vim-plugins')
+depends=('vim-vsnip')
+makedepends=('git')
+source=("$pkgname::git+$url")
+md5sums=('SKIP')
+
+pkgver() {
+	cd "$pkgname"
+	printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+}
+
+package() {
+	cd "$pkgname"
+
+	local vimfiles="$pkgdir/usr/share/vim/vimfiles/"
+	install -d "$vimfiles"
+	cp -dr --no-preserve=ownership after autoload doc plugin "$vimfiles"
+	install -Dm 644 LICENSE "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
+}

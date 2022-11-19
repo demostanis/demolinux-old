@@ -14,7 +14,7 @@ ensure_installed git
 if [ ! -d container/etc ]; then
 	rm -rf container
 	mkdir container
-	pacstrap -c container base base-devel
+	pacstrap -c container base base-devel zsh
 fi
 systemd-nspawn -D container \
 	--bind="$(pwd)"/tobuild:/root /root/script.sh $@
