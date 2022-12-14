@@ -4,40 +4,40 @@ echo Updating container...
 pacman -Syu --noconfirm
 
 packages=${*:-
-	metatorrent
-	gimmeasearx
-	lokinet
-	firefox-userchromejs
-	firefox-keyconfig
-	firefox-vimfx
-	firefox-ytarb
-	firefox-dark-reader
-	firefox-sponsorblock
-	firefox-ublock-origin
-	lsb-release
-	wlroots
-	wf-config
-	wayfire
-	wlogout
-	waybar
-	wdisplays
-	emmet-cli
-	neo
-	kakoune
-	up
-	kampliment
-	qwerty-lafayette
-	iwgtk
-	vim-lsp
-	vim-lsp-settings
-	vim-asyncomplete
-	vim-asyncomplete-lsp
-	vim-vsnip
-	vim-vsnip-integ
-	vim-fzf
-	vim-repeat
-	vim-devicons
-	vim-submode
+	metatorrent\
+	gimmeasearx\
+	lokinet\
+	firefox-userchromejs\
+	firefox-keyconfig\
+	firefox-vimfx\
+	firefox-ytarb\
+	firefox-dark-reader\
+	firefox-sponsorblock\
+	firefox-ublock-origin\
+	lsb-release\
+	wlroots\
+	wf-config\
+	wayfire\
+	wlogout\
+	waybar\
+	wdisplays\
+	emmet-cli\
+	neo\
+	kakoune\
+	up\
+	kampliment\
+	qwerty-lafayette\
+	iwgtk\
+	vim-lsp\
+	vim-lsp-settings\
+	vim-asyncomplete\
+	vim-asyncomplete-lsp\
+	vim-vsnip\
+	vim-vsnip-integ\
+	vim-fzf\
+	vim-repeat\
+	vim-devicons\
+	vim-submode\
 }
 pgpkeys=(
 # Haden Collins <collinshaden@gmail.com> (wlogout)
@@ -64,4 +64,3 @@ for pkg in ${packages[*]}; do
 done
 EOF
 )"
-
